@@ -1,0 +1,3289 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>庭木の手入れ、料金が心配なあなたへ｜無料で概算見積もり</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ========== CSS変数 ==========
+       【変更②】ベースカラーを #22ba4f（明るいグリーン）に統一
+       【変更⑧】オレンジを変数化
+    ================================ */
+    :root {
+      --green-dark:    #1a6b2e;   /* 変更②: ダーク側も明るいトーンへ */
+      --green-mid:     #22ba4f;   /* 変更②: メインを #22ba4f に */
+      --green-light:   #5dce7e;
+      --green-pale:    #d4f5de;
+      --green-mist:    #f0fbf4;
+      --orange:        #e07b20;   /* 変更⑧: オレンジ変数 */
+      --orange-dark:   #c9602a;
+      --gold:          #c9943a;
+      --gold-light:    #f4e4c1;
+      --text-primary:  #1c2621;
+      --text-mid:      #3d4d45;
+      --text-soft:     #667d72;
+      --bg:            #f8fdf9;
+      --white:         #ffffff;
+      --border:        #cce8d4;
+      --shadow-sm:     0 2px 8px rgba(34,186,79,0.10);
+      --shadow-md:     0 6px 24px rgba(34,186,79,0.15);
+      --radius:        14px;
+      --radius-sm:     8px;
+      --font-serif:    'Noto Serif JP', serif;
+      --font-sans:     'Noto Sans JP', sans-serif;
+    }
+
+    /* ========== リセット・ベース ========== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    /* 【変更④】フォント16px以上・行間1.8でスマホ可読性向上 */
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.8;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 80px; /* 固定フッターCTAの高さ分 */
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    /* ========== レイアウト共通 ========== */
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    /* 【変更④】セクション余白を拡大 */
+    section { padding: 64px 0; }
+    section + section { border-top: 1px solid var(--border); }
+
+    /* ========== テキストユーティリティ ========== */
+    .section-label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--green-dark);
+      background: var(--green-pale);
+      padding: 4px 14px;
+      border-radius: 100px;
+      margin-bottom: 14px;
+    }
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(21px, 5.5vw, 28px);
+      font-weight: 700;
+      color: var(--green-dark);
+      line-height: 1.45;
+      margin-bottom: 16px;
+    }
+    /* 【変更④】本文16pxに統一 */
+    .section-desc {
+      color: var(--text-mid);
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    /* ==============================================
+       ボタン群
+       【変更⑧】3種のCTAを明確に差別化
+       【変更④】パディング拡大でタップしやすく
+    ============================================== */
+
+    /* メインCTA: オレンジ・横幅いっぱい・大きい */
+    .btn-primary {
+      display: block;
+      width: 100%;
+      padding: 20px 24px;
+      background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
+      color: var(--white);
+      font-family: var(--font-sans);
+      font-size: 17px;
+      font-weight: 700;
+      text-align: center;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: filter .2s, transform .15s, box-shadow .2s;
+      box-shadow: 0 5px 20px rgba(224,123,32,0.45);
+      letter-spacing: .03em;
+      line-height: 1.35;
+    }
+    .btn-primary:hover  { filter: brightness(1.08); box-shadow: 0 8px 28px rgba(224,123,32,0.55); }
+    .btn-primary:active { transform: scale(.98); }
+    .btn-primary small  { display: block; font-size: 12px; font-weight: 400; opacity: .85; margin-top: 4px; }
+
+    /* サブCTA: グリーンアウトライン */
+    .btn-secondary {
+      display: block;
+      width: 100%;
+      padding: 16px 24px;
+      background: var(--white);
+      color: var(--green-dark);
+      font-family: var(--font-sans);
+      font-size: 15px;
+      font-weight: 700;
+      text-align: center;
+      border: 2px solid var(--green-mid);
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: background .2s, color .2s;
+      letter-spacing: .03em;
+    }
+    .btn-secondary:hover { background: var(--green-pale); }
+
+    /* ゴールドCTA */
+    .btn-gold {
+      display: block;
+      width: 100%;
+      padding: 18px 24px;
+      background: var(--gold);
+      color: var(--white);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      font-weight: 700;
+      text-align: center;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: background .2s, box-shadow .2s;
+      box-shadow: 0 4px 16px rgba(201,148,58,0.35);
+      letter-spacing: .03em;
+    }
+    .btn-gold:hover { background: #b07e28; box-shadow: 0 6px 20px rgba(201,148,58,0.45); }
+
+    /* ヒーロー内サブCTA: ゴーストボタン（控えめ） */
+    .btn-hero-sub {
+      display: block;
+      width: 100%;
+      padding: 14px 24px;
+      background: rgba(255,255,255,0.10);
+      color: rgba(255,255,255,0.88);
+      font-family: var(--font-sans);
+      font-size: 15px;
+      font-weight: 600;
+      text-align: center;
+      border: 1.5px solid rgba(255,255,255,0.40);
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: background .2s, border-color .2s;
+      letter-spacing: .02em;
+    }
+    .btn-hero-sub:hover { background: rgba(255,255,255,0.20); border-color: rgba(255,255,255,0.65); }
+
+    /* 【変更⑦⑧】写真なし テキストリンクCTA */
+    .btn-no-photo {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.68);
+      font-size: 14px;
+      font-family: var(--font-sans);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      cursor: pointer;
+      text-align: center;
+      transition: color .15s;
+    }
+    .btn-no-photo:hover { color: var(--white); }
+
+    .btn-note {
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--text-soft);
+      text-align: center;
+    }
+
+    /* ========== 固定フッターCTA（スマホ） ========== */
+    .sticky-cta {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: var(--white);
+      padding: 12px 20px 20px;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+      z-index: 100;
+      border-top: 1px solid var(--border);
+    }
+    .sticky-cta .btn-primary { font-size: 15px; padding: 15px; }
+    .sticky-cta-note { font-size: 11px; color: var(--text-soft); text-align: center; margin-top: 6px; }
+
+    /* ====================================
+       1. ファーストビュー
+       【変更①】庭木写真 + 黒オーバーレイ（約 opacity 0.45）
+       【変更②】明るいグリーン #22ba4f ベース
+       【変更③】SVGアイコン対応スタイル追加
+       【変更④】フォント・パディング拡大
+    ==================================== */
+
+    /* ====================================
+       2. 悩み訴求
+       【変更③】アイコンをSVG枠組みに
+       【変更④】フォント・余白拡大
+    ==================================== */
+    #pain { background: var(--white); }
+    .pain-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin: 28px 0 32px;
+    }
+    .pain-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 18px 16px;
+    }
+    /* 変更③: アイコン円枠（顔文字の代替） */
+    .pain-icon-wrap {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--green-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .pain-icon-wrap svg {
+      width: 22px; height: 22px;
+      fill: none;
+      stroke: var(--green-dark);
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    /* 旧アイコン（後方互換） */
+    .pain-icon {
+      font-size: 22px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .pain-text {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text-mid);
+      flex: 1;
+    }
+    .pain-text strong {
+      display: block;
+      color: var(--text-primary);
+      font-weight: 700;
+      margin-bottom: 4px;
+      font-size: 16px;
+    }
+    .pain-resolve {
+      background: var(--green-mist);
+      border-left: 3px solid var(--green-mid);
+      padding: 18px 20px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-size: 16px;
+      color: var(--green-dark);
+      line-height: 1.75;
+    }
+    .pain-resolve strong { font-weight: 700; }
+
+    /* ====================================
+       【変更②】AI概算見積もりセクション（新規追加）
+       ファーストビュー直下・サービス説明直後に配置
+    ==================================== */
+    #ai-estimate-section {
+      background: var(--white);
+      padding: 56px 0;
+    }
+    .ai-est-header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    /* 3ステップ：スマホ縦並び、PC横並び */
+    .ai-est-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin: 0 0 32px;
+    }
+    @media (min-width: 560px) {
+      .ai-est-steps { flex-direction: row; gap: 12px; }
+    }
+    .ai-est-step-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      background: var(--green-mist);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 18px;
+      position: relative;
+      flex: 1;
+    }
+    /* スマホ縦並び時：ステップ間に矢印 */
+    .ai-est-step-card:not(:last-child)::after {
+      content: '↓';
+      position: absolute;
+      bottom: -21px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 18px;
+      color: var(--green-light);
+      z-index: 1;
+      line-height: 1;
+    }
+    @media (min-width: 560px) {
+      .ai-est-step-card:not(:last-child)::after {
+        content: '→';
+        bottom: auto;
+        left: auto;
+        right: -17px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 20px;
+      }
+    }
+    /* 変更③: AI見積もりステップアイコン→SVG枠に */
+    .ai-step-icon-wrap {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      background: var(--green-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .ai-step-icon-wrap svg {
+      width: 26px; height: 26px;
+      fill: none;
+      stroke: var(--green-dark);
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    /* 旧クラス（後方互換） */
+    .ai-est-step-icon { font-size: 32px; flex-shrink: 0; line-height: 1; }
+    .ai-est-step-body { flex: 1; }
+    .ai-est-step-num {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      color: var(--green-mid);
+      margin-bottom: 3px;
+      text-transform: uppercase;
+    }
+    /* 変更④ */
+    .ai-est-step-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--green-dark);
+      margin-bottom: 4px;
+      line-height: 1.4;
+    }
+    .ai-est-step-desc {
+      font-size: 12px;
+      color: var(--text-soft);
+      line-height: 1.55;
+    }
+    .ai-est-cta-wrap {
+      text-align: center;
+    }
+    /* このセクション専用CTA：オレンジで概算CTAと統一 */
+    .btn-ai-est {
+      display: inline-block;
+      width: 100%;
+      max-width: 400px;
+      padding: 18px 24px;
+      background: linear-gradient(135deg, #e07b20 0%, #c9602a 100%);
+      color: var(--white);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      font-weight: 700;
+      text-align: center;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: filter .2s, box-shadow .2s, transform .15s;
+      box-shadow: 0 4px 18px rgba(201,96,42,0.45);
+      letter-spacing: .03em;
+    }
+    .btn-ai-est:hover  { filter: brightness(1.1); box-shadow: 0 6px 24px rgba(201,96,42,0.55); }
+    .btn-ai-est:active { transform: scale(.98); }
+    .ai-est-note {
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--text-soft);
+      text-align: center;
+    }
+
+    /* ====================================
+       3. サービス説明
+    ==================================== */
+    #service {
+      background: var(--green-mist);
+    }
+    .service-flow {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin: 28px 0;
+      position: relative;
+    }
+    .service-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 20px 0;
+    }
+    .service-step:not(:last-child) {
+      border-bottom: 1px dashed var(--border);
+    }
+    .step-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--green-mid);
+      color: var(--white);
+      font-size: 14px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-family: var(--font-serif);
+    }
+    .step-body { flex: 1; }
+    .step-title {
+      font-weight: 700;
+      color: var(--green-dark);
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+    .step-desc {
+      font-size: 13px;
+      color: var(--text-mid);
+      line-height: 1.65;
+    }
+    .step-tag {
+      display: inline-block;
+      background: var(--green-pale);
+      color: var(--green-dark);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 100px;
+      margin-top: 6px;
+    }
+    .service-note {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      font-size: 13px;
+      color: var(--text-mid);
+      text-align: center;
+    }
+
+    /* ====================================
+       4. 概算見積もりCTA（重要セクション）
+    ==================================== */
+    #estimate {
+      background: var(--white);
+    }
+    .estimate-card {
+      background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 100%);
+      border-radius: 16px;
+      padding: 32px 24px;
+      text-align: center;
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+    .estimate-card::before {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 150px; height: 150px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.05);
+    }
+    .estimate-card-label {
+      display: inline-block;
+      background: rgba(255,255,255,0.18);
+      color: #b2f0c8;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      padding: 4px 14px;
+      border-radius: 100px;
+      margin-bottom: 14px;
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+    .estimate-card-title {
+      font-family: var(--font-serif);
+      font-size: clamp(18px, 5vw, 24px);
+      font-weight: 700;
+      line-height: 1.45;
+      margin-bottom: 12px;
+    }
+    .estimate-card-desc {
+      font-size: 13px;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.75;
+      margin-bottom: 24px;
+    }
+    .estimate-steps {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      margin-bottom: 24px;
+      background: rgba(0,0,0,0.15);
+      border-radius: var(--radius-sm);
+      padding: 12px;
+    }
+    .est-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      flex: 1;
+      position: relative;
+    }
+    .est-step:not(:last-child)::after {
+      content: '→';
+      position: absolute;
+      right: -8px;
+      top: 10px;
+      color: rgba(255,255,255,0.4);
+      font-size: 12px;
+    }
+    /* 変更③: estimateカードステップアイコン→SVG枠に */
+    .est-step-icon-wrap {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 4px;
+    }
+    .est-step-icon-wrap svg {
+      width: 22px; height: 22px;
+      fill: none;
+      stroke: rgba(255,255,255,0.90);
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .est-step-icon { font-size: 20px; }
+    .est-step-text { font-size: 11px; color: rgba(255,255,255,0.8); text-align: center; line-height: 1.3; }
+    .estimate-card .btn-primary {
+      background: var(--white);
+      color: var(--green-dark);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+      font-size: 16px;
+    }
+    .estimate-card .btn-primary:hover {
+      background: var(--green-pale);
+      color: var(--green-dark);
+    }
+    .estimate-card-note {
+      margin-top: 10px;
+      font-size: 11px;
+      color: rgba(255,255,255,0.55);
+    }
+    .estimate-precision {
+      margin-top: 20px;
+      background: var(--green-mist);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+    }
+    .precision-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--green-dark);
+      margin-bottom: 10px;
+    }
+    .precision-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .precision-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--text-mid);
+    }
+    /* 変更③: precision-item のチェックをSVGに（HTML側で埋め込む） */
+    .precision-item-check {
+      width: 18px; height: 18px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .precision-item-check svg {
+      width: 18px; height: 18px;
+      fill: none;
+      stroke: var(--green-mid);
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* ====================================
+       5. 安心要素
+    ==================================== */
+    #trust {
+      background: var(--green-mist);
+    }
+    .trust-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 24px 0 28px;
+    }
+    .trust-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 18px 14px;
+      text-align: center;
+    }
+    /* 変更③: trust-card-icon→SVG枠に */
+    .trust-card-icon {
+      width: 52px; height: 52px;
+      border-radius: 14px;
+      background: var(--green-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 10px;
+    }
+    .trust-card-icon svg {
+      width: 28px; height: 28px;
+      fill: none;
+      stroke: var(--green-dark);
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .trust-card-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--green-dark);
+      margin-bottom: 5px;
+      line-height: 1.4;
+    }
+    .trust-card-desc {
+      font-size: 12px;
+      color: var(--text-soft);
+      line-height: 1.55;
+    }
+    .trust-voice {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+    .trust-voice-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--green-dark);
+      margin-bottom: 14px;
+    }
+    .voice-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .voice-item + .voice-item {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+    }
+    /* 変更③: voice-avatar→SVG人物アイコン枠に */
+    .voice-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--green-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .voice-avatar svg {
+      width: 22px; height: 22px;
+      fill: none;
+      stroke: var(--green-dark);
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .voice-body { flex: 1; }
+    .voice-name {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-mid);
+      margin-bottom: 4px;
+    }
+    .voice-text {
+      font-size: 13px;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+
+    /* ====================================
+       6. 料金説明
+    ==================================== */
+    #pricing {
+      background: var(--white);
+    }
+    .pricing-table {
+      margin: 24px 0;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .pricing-head {
+      background: var(--green-dark);
+      color: var(--white);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .05em;
+    }
+    .pricing-head span, .pricing-row span {
+      padding: 12px 16px;
+    }
+    .pricing-head span + span, .pricing-row span + span {
+      border-left: 1px solid rgba(255,255,255,0.15);
+    }
+    .pricing-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      font-size: 13px;
+      border-top: 1px solid var(--border);
+    }
+    .pricing-row:nth-child(even) { background: var(--green-mist); }
+    .pricing-row span:first-child { color: var(--text-mid); }
+    .pricing-row span + span {
+      font-weight: 700;
+      color: var(--green-dark);
+      border-left: 1px solid var(--border);
+    }
+    .pricing-note {
+      font-size: 12px;
+      color: var(--text-soft);
+      margin-top: 10px;
+      line-height: 1.65;
+    }
+    .pricing-note strong {
+      color: var(--gold);
+    }
+
+    /* ====================================
+       7. 利用の流れ
+    ==================================== */
+    #flow {
+      background: var(--green-mist);
+    }
+    .flow-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin: 28px 0;
+      position: relative;
+    }
+    .flow-list::before {
+      content: '';
+      position: absolute;
+      left: 18px;
+      top: 36px;
+      bottom: 36px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--green-light), var(--green-pale));
+    }
+    .flow-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      position: relative;
+      padding-bottom: 24px;
+    }
+    .flow-item:last-child { padding-bottom: 0; }
+    .flow-num {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 2px solid var(--green-light);
+      color: var(--green-dark);
+      font-size: 14px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      z-index: 1;
+      font-family: var(--font-serif);
+    }
+    .flow-body { flex: 1; padding-top: 6px; }
+    .flow-title {
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--green-dark);
+      margin-bottom: 4px;
+    }
+    .flow-desc {
+      font-size: 13px;
+      color: var(--text-mid);
+      line-height: 1.65;
+    }
+
+    /* ====================================
+       8. 最終CTA
+    ==================================== */
+    #final-cta {
+      background: linear-gradient(160deg, #0f3320 0%, var(--green-dark) 100%);
+      padding: 60px 0 80px;
+      text-align: center;
+    }
+    .final-cta-inner {}
+    .final-cta-label {
+      display: inline-block;
+      background: rgba(255,255,255,0.12);
+      color: #9de6b8;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      padding: 5px 16px;
+      border-radius: 100px;
+      border: 1px solid rgba(255,255,255,0.2);
+      margin-bottom: 18px;
+    }
+    .final-cta-title {
+      font-family: var(--font-serif);
+      font-size: clamp(20px, 5.5vw, 28px);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.45;
+      margin-bottom: 12px;
+    }
+    .final-cta-desc {
+      color: rgba(255,255,255,0.7);
+      font-size: 14px;
+      line-height: 1.8;
+      margin-bottom: 32px;
+    }
+    .final-cta-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .final-cta-divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: rgba(255,255,255,0.35);
+      font-size: 12px;
+    }
+    .final-cta-divider::before, .final-cta-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(255,255,255,0.2);
+    }
+    .cta-sub-note {
+      margin-top: 6px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.45);
+      text-align: center;
+    }
+    #final-cta .btn-secondary {
+      background: transparent;
+      border-color: rgba(255,255,255,0.4);
+      color: rgba(255,255,255,0.85);
+    }
+    #final-cta .btn-secondary:hover {
+      background: rgba(255,255,255,0.08);
+    }
+
+    /* ====================================
+       FAQ
+    ==================================== */
+    #faq {
+      background: var(--white);
+    }
+    .faq-list {
+      margin-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .faq-item {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+    }
+    .faq-q {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 16px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--green-dark);
+      background: var(--white);
+      transition: background .15s;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    .faq-q:hover { background: var(--green-mist); }
+    .faq-q-icon {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      background: var(--green-pale);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--green-dark);
+      margin-top: 1px;
+    }
+    .faq-q-text { flex: 1; }
+    .faq-toggle {
+      font-size: 18px;
+      color: var(--green-mid);
+      transition: transform .25s;
+      margin-left: auto;
+      flex-shrink: 0;
+    }
+    .faq-item.open .faq-toggle { transform: rotate(45deg); }
+    .faq-a {
+      display: none;
+      padding: 0 16px 16px 48px;
+      font-size: 13px;
+      color: var(--text-mid);
+      line-height: 1.75;
+      border-top: 1px solid var(--border);
+      background: var(--green-mist);
+    }
+    .faq-item.open .faq-a { display: block; }
+
+    /* ====================================
+       フッター
+    ==================================== */
+    footer {
+      background: var(--green-dark);
+      color: rgba(255,255,255,0.55);
+      text-align: center;
+      padding: 24px 20px 80px;
+      font-size: 12px;
+      line-height: 1.8;
+    }
+    footer a { color: rgba(255,255,255,0.6); text-decoration: underline; }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* ====================================
+       モーダル（見積もりフォーム）
+    ==================================== */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      z-index: 200;
+      align-items: flex-end;
+      justify-content: center;
+    }
+    .modal-overlay.active {
+      display: flex;
+    }
+    .modal {
+      background: var(--white);
+      width: 100%;
+      max-width: 680px;
+      max-height: 90vh;
+      border-radius: 20px 20px 0 0;
+      overflow-y: auto;
+      padding: 0 0 32px;
+      animation: slideUp .3s ease;
+    }
+    @keyframes slideUp {
+      from { transform: translateY(100%); }
+      to   { transform: translateY(0); }
+    }
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 20px 16px;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      background: var(--white);
+      z-index: 1;
+    }
+    .modal-title {
+      font-family: var(--font-serif);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--green-dark);
+    }
+    .modal-close {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-soft);
+      transition: background .15s;
+    }
+    .modal-close:hover { background: var(--border); }
+    .modal-body { padding: 20px; }
+    .modal-step {
+      display: none;
+    }
+    .modal-step.active { display: block; }
+    .step-indicator {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 20px;
+      align-items: center;
+    }
+    .step-dot {
+      height: 4px;
+      border-radius: 100px;
+      background: var(--border);
+      flex: 1;
+      transition: background .3s;
+    }
+    .step-dot.done { background: var(--green-light); }
+    .step-dot.active { background: var(--green-mid); }
+    .form-label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--green-dark);
+      margin-bottom: 10px;
+    }
+    .form-label span.required {
+      display: inline-block;
+      background: #e53e3e;
+      color: var(--white);
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 3px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+    .form-group { margin-bottom: 20px; }
+    .radio-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .radio-option {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 11px 13px;
+      cursor: pointer;
+      transition: border-color .15s, background .15s;
+      font-size: 13px;
+      color: var(--text-mid);
+    }
+    .radio-option input[type="radio"] {
+      accent-color: var(--green-mid);
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+    .radio-option:has(input:checked) {
+      border-color: var(--green-mid);
+      background: var(--green-mist);
+      color: var(--green-dark);
+      font-weight: 600;
+    }
+    .number-input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-sans);
+      font-size: 14px;
+      color: var(--text-primary);
+      background: var(--white);
+      transition: border-color .15s;
+      -webkit-appearance: none;
+    }
+    .number-input:focus {
+      outline: none;
+      border-color: var(--green-mid);
+    }
+    /* =============================================
+       写真アップロード
+       【変更⑥】必須バリデーション・エラー表示・サムネイル
+    ============================================= */
+    /* ── アップロードエリア（未選択状態） ── */
+    .upload-area {
+      border: 2px dashed var(--border);
+      border-radius: var(--radius);
+      padding: 32px 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color .15s, background .15s;
+      position: relative;
+      background: var(--white);
+    }
+    .upload-area:hover {
+      border-color: var(--green-mid);
+      background: var(--green-mist);
+    }
+    .upload-area.error {
+      border-color: #e53e3e !important;
+      background: #fff5f5 !important;
+    }
+    /* アップロード済み：枠を非表示にして写真だけ見せる */
+    .upload-area.has-file {
+      padding: 0;
+      border: none;
+      background: transparent;
+      cursor: default;
+    }
+    .upload-area.has-file .upload-inner {
+      display: none; /* アイコン・テキストを隠す */
+    }
+    /* アイコン枠 */
+    .upload-icon-wrap {
+      width: 52px; height: 52px;
+      border-radius: 14px;
+      background: var(--green-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 10px;
+    }
+    .upload-icon-wrap svg {
+      width: 26px; height: 26px;
+      fill: none;
+      stroke: var(--green-dark);
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .upload-text {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--green-dark);
+      margin-bottom: 4px;
+    }
+    .upload-note { font-size: 12px; color: var(--text-soft); }
+    /* file inputを透明にして全面タップ可能に */
+    .upload-area input[type="file"] {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+      width: 100%;
+      height: 100%;
+    }
+    /* アップロード済み状態では input を非表示 */
+    .upload-area.has-file input[type="file"] { display: none; }
+    /* エラーメッセージ */
+    .upload-error {
+      display: none;
+      color: #e53e3e;
+      font-size: 13px;
+      font-weight: 600;
+      margin-top: 6px;
+    }
+    .upload-error.show { display: block; }
+    /* プレビュー：アップロード後に表示される写真カード */
+    .upload-preview {
+      display: none;
+    }
+    .upload-preview.has-file {
+      display: block;
+    }
+    /* 写真カード本体 */
+    .preview-card {
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: #000;
+      line-height: 0;
+    }
+    .preview-card img {
+      width: 100%;
+      max-height: 220px;
+      object-fit: cover;
+      display: block;
+      border-radius: var(--radius);
+    }
+    /* 写真上の「撮り直す」ボタン */
+    .preview-retake {
+      position: absolute;
+      top: 8px; right: 8px;
+      background: rgba(0,0,0,0.55);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+      border: none;
+      border-radius: 20px;
+      padding: 5px 12px;
+      cursor: pointer;
+      font-family: var(--font-sans);
+      letter-spacing: 0.02em;
+    }
+    /* 完了バッジ */
+    .preview-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: var(--green-mid);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 20px;
+      padding: 4px 10px;
+      margin-top: 8px;
+    }
+    .preview-badge svg {
+      width: 13px; height: 13px;
+      stroke: #fff; fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* =============================================
+       見積もり結果
+       【変更⑤】単一金額（中央値）を大きく表示
+       　　　　　内訳：小計（税抜）・消費税・合計（税込）
+    ============================================= */
+    .result-box {
+      background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 100%);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      color: var(--white);
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .result-label {
+      font-size: 13px;
+      color: rgba(255,255,255,0.72);
+      margin-bottom: 10px;
+      letter-spacing: .08em;
+    }
+    /* 変更⑤: 単一金額を大きく目立たせる */
+    .result-price {
+      font-family: var(--font-serif);
+      font-size: clamp(36px, 10vw, 52px);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 6px;
+      letter-spacing: -.02em;
+    }
+    .result-price-note {
+      font-size: 12px;
+      color: rgba(255,255,255,0.55);
+    }
+    /* 変更⑤: 内訳テーブル（小計・消費税・合計） */
+    .result-breakdown {
+      background: var(--green-mist);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+    .result-breakdown-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-mid);
+      padding: 10px 16px;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      letter-spacing: .05em;
+    }
+    .breakdown-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      color: var(--text-mid);
+      padding: 11px 16px;
+    }
+    .breakdown-row + .breakdown-row { border-top: 1px solid var(--border); }
+    .breakdown-row span:last-child {
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    /* 変更⑤: 合計行を強調 */
+    .breakdown-row.total {
+      background: var(--green-pale);
+      border-top: 2px solid var(--green-mid) !important;
+    }
+    .breakdown-row.total span { font-size: 16px; color: var(--green-dark); }
+    .result-caveat {
+      background: var(--gold-light);
+      border: 1px solid #e8c97a;
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      font-size: 12px;
+      color: #7a5a1a;
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+    .result-next {
+      background: var(--green-mist);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+      margin-bottom: 16px;
+    }
+    .result-next-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--green-dark);
+      margin-bottom: 8px;
+    }
+    .result-next-desc {
+      font-size: 13px;
+      color: var(--text-mid);
+      margin-bottom: 14px;
+      line-height: 1.65;
+    }
+
+    /* ====================================
+       問い合わせフォーム（現地調査依頼）
+    ==================================== */
+    .contact-form .form-group { margin-bottom: 16px; }
+    .contact-form input[type="text"],
+    .contact-form input[type="tel"],
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-sans);
+      font-size: 14px;
+      color: var(--text-primary);
+      background: var(--white);
+      transition: border-color .15s;
+      -webkit-appearance: none;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--green-mid);
+    }
+    .contact-form textarea { resize: vertical; min-height: 80px; }
+    .contact-privacy {
+      font-size: 12px;
+      color: var(--text-soft);
+      text-align: center;
+      margin-top: 10px;
+      line-height: 1.6;
+    }
+
+    /* ====================================
+       サンクスページ
+    ==================================== */
+    .thanks-wrap {
+      text-align: center;
+      padding: 20px 0;
+    }
+    /* 変更③: thanks-icon→SVGチェック枠に */
+    .thanks-icon {
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      background: var(--green-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 18px;
+    }
+    .thanks-icon svg {
+      width: 34px; height: 34px;
+      fill: none;
+      stroke: var(--green-dark);
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .thanks-title {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--green-dark);
+      margin-bottom: 10px;
+    }
+    .thanks-desc {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.75;
+    }
+
+    /* ====================================
+       レスポンシブ調整
+    ==================================== */
+    @media (min-width: 560px) {
+      .trust-grid { grid-template-columns: repeat(2, 1fr); }
+      /* hero-cta-wrap: PC幅での行方向展開は廃止（縦積みを維持） */
+    }
+
+
+    /* ── AI解析中オーバーレイ ── */
+    #analyzing-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(255,255,255,0.96);
+      z-index: 9999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 24px;
+      text-align: center;
+    }
+    #analyzing-overlay.active { display: flex; }
+
+    .analyzing-icon {
+      width: 72px; height: 72px;
+      background: var(--green-pale);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 24px;
+      animation: pulse 1.6s ease-in-out infinite;
+    }
+    .analyzing-icon svg {
+      width: 36px; height: 36px;
+      fill: none; stroke: var(--green-mid);
+      stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1);   opacity: 1;   }
+      50%       { transform: scale(1.1); opacity: 0.7; }
+    }
+
+    .analyzing-title {
+      font-size: 18px; font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+    }
+    .analyzing-sub {
+      font-size: 13px; color: var(--text-soft);
+      margin-bottom: 28px; line-height: 1.6;
+    }
+
+    /* 進捗バー外枠 */
+    .progress-bar-wrap {
+      width: 100%; max-width: 320px;
+      background: var(--green-pale);
+      border-radius: 100px;
+      height: 10px;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+    /* 進捗バー本体（JSでwidthを更新） */
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--green-mid), var(--green-light));
+      border-radius: 100px;
+      transition: width 0.4s ease;
+    }
+    .progress-label {
+      font-size: 12px; color: var(--text-soft); font-weight: 600;
+    }
+
+    /* ステップメッセージ */
+    .analyzing-steps {
+      margin-top: 24px;
+      display: flex; flex-direction: column; gap: 8px;
+      width: 100%; max-width: 320px; text-align: left;
+    }
+    .analyzing-step-item {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 13px; color: var(--text-soft);
+      opacity: 0.35;
+      transition: opacity 0.4s;
+    }
+    .analyzing-step-item.done  { opacity: 1; color: var(--green-dark); }
+    .analyzing-step-item.active { opacity: 1; color: var(--text-primary); font-weight: 700; }
+    .analyzing-step-dot {
+      width: 20px; height: 20px; border-radius: 50%; flex-shrink: 0;
+      background: var(--green-pale);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .analyzing-step-item.done .analyzing-step-dot {
+      background: var(--green-mid);
+    }
+    .analyzing-step-item.done .analyzing-step-dot::after {
+      content: ''; display: block;
+      width: 5px; height: 9px;
+      border: 2px solid #fff; border-top: none; border-left: none;
+      transform: rotate(45deg) translate(-1px, -1px);
+    }
+    .analyzing-step-item.active .analyzing-step-dot {
+      background: var(--green-light);
+      animation: pulse 1s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body>
+
+
+<!-- =========================================
+  #site-header - サイトヘッダー
+========================================= -->
+<style>
+  /* === ヘッダー全体 === */
+  #site-header {
+    width: 100%;
+    background: #fff;
+    border-bottom: 1px solid #e0e0e0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .header-topbar {
+    background: #f5f5f5;
+    border-bottom: 1px solid #e8e8e8;
+    padding: 6px 16px;
+    font-size: 11px;
+    color: #666;
+    text-align: center;
+    line-height: 1.5;
+  }
+  .header-main {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .header-logo {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+  .header-logo-tagline {
+    font-size: 9px;
+    color: #666;
+    letter-spacing: 0.02em;
+    line-height: 1;
+  }
+  .header-logo-name {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .logo-house {
+    width: 22px; height: 22px;
+    background: #22ba4f;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .logo-text {
+    font-size: 20px;
+    font-weight: 800;
+    color: #22ba4f;
+    letter-spacing: -0.01em;
+    line-height: 1;
+  }
+  .header-tel-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    flex: 1;
+    min-width: 0;
+  }
+  .header-badges { display: flex; gap: 4px; }
+  .header-badge {
+    font-size: 9px;
+    font-weight: 700;
+    background: #22ba4f;
+    color: #fff;
+    border-radius: 3px;
+    padding: 2px 5px;
+    white-space: nowrap;
+  }
+  .header-tel-row { display: flex; align-items: center; gap: 6px; }
+  .tel-icon-btn {
+    width: 32px; height: 32px;
+    background: #FF7A00;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .header-tel-number {
+    font-size: 18px;
+    font-weight: 800;
+    color: #333;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    white-space: nowrap;
+    text-decoration: none;
+  }
+
+  /* === #hero === */
+  #hero {
+    position: relative;
+    width: 100%;
+    min-height: 100svh;
+    background-image: url('hero-bg.jpg');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+  }
+  .hero-overlay {
+    display: flex;
+    flex-direction: column;
+    min-height: 100svh;
+    background: linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.05) 0%,
+      rgba(0,0,0,0.00) 40%,
+      rgba(0,0,0,0.55) 70%,
+      rgba(0,0,0,0.72) 100%
+    );
+  }
+  .hero-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 24px 16px 0;
+  }
+  .hero-catch { max-width: 600px; margin: 0 auto; width: 100%; }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #22ba4f;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    border-radius: 4px;
+    padding: 4px 10px;
+    margin-bottom: 12px;
+  }
+  .hero-badge svg { width: 14px; height: 14px; flex-shrink: 0; }
+  .hero-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.45;
+    letter-spacing: 0.01em;
+    text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+    margin-bottom: 10px;
+  }
+  .hero-title em { font-style: normal; color: #FF7A00; }
+  .hero-sub {
+    font-size: 14px;
+    color: rgba(255,255,255,0.88);
+    line-height: 1.65;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.35);
+  }
+  .hero-cta-zone { padding: 24px 0 32px; }
+  .hero-cta-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  /* ヒーロー用メインCTAボタン（オレンジ丸） */
+  .hero-btn-main {
+    display: block;
+    width: 100%;
+    background: #FF7A00;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 50px;
+    padding: 18px 24px;
+    cursor: pointer;
+    letter-spacing: 0.03em;
+    line-height: 1.4;
+  }
+  /* ヒーロー用サブCTAボタン（グリーン枠） */
+  .hero-btn-sub {
+    display: block;
+    width: 100%;
+    background: transparent;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    border: 2px solid rgba(255,255,255,0.7);
+    border-radius: 50px;
+    padding: 13px 24px;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+    line-height: 1.4;
+  }
+  .hero-cta-note {
+    font-size: 12px;
+    color: rgba(255,255,255,0.75);
+    text-align: center;
+    line-height: 1.6;
+  }
+  .hero-trust-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+  }
+  .hero-trust-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: rgba(255,255,255,0.90);
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .hero-trust-item svg { width: 16px; height: 16px; flex-shrink: 0; }
+  .hero-trust-sep {
+    width: 1px; height: 14px;
+    background: rgba(255,255,255,0.35);
+  }
+</style>
+
+<!-- 常時表示 固定フッターCTA -->
+<div class="sticky-cta" id="sticky-cta">
+  <div style="max-width:600px;margin:0 auto;">
+    <button class="btn-primary" onclick="openModal('estimate')" style="width:100%;font-size:15px;padding:15px;">
+      📷 写真でAI見積もりを始める（無料）
+    </button>
+    <p class="sticky-cta-note">登録不要・完全無料 ／ 押し売りなし</p>
+  </div>
+</div>
+
+<header id="site-header">
+  <div class="header-topbar">
+    庭木施工が現地調査なしで無料見積もり可能｜リショップナビ
+  </div>
+  <div class="header-main">
+    <a href="#" class="header-logo">
+      <span class="header-logo-tagline">庭木・造園なら全国のプロにお任せ</span>
+      <div class="header-logo-name">
+        <img src="logo.png" alt="リショップナビ" style="height:38px;width:auto;display:block;">
+      </div>
+    </a>
+    <div class="header-tel-block">
+      <div class="header-badges">
+        <span class="header-badge">24時間365日</span>
+        <span class="header-badge">日本全国対応</span>
+      </div>
+      <div class="header-tel-row">
+        <div class="tel-icon-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" fill="#fff"/>
+            <path d="M15 7c1.1 0 2 .9 2 2M15 3c2.8 0 5 2.2 5 5" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <a href="tel:0120857166" class="header-tel-number">0120-857-166</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ========== #hero ========== -->
+<section id="hero">
+  <div class="hero-overlay">
+
+    <!-- 背景画像テキスト分の高さを確保するスペーサー＋キャッチコピー -->
+    <div class="hero-body">
+      <div class="hero-catch">
+        <div class="hero-badge">
+          <svg viewBox="0 0 20 20" fill="none">
+            <path d="M10 2l1.5 4.5H16l-3.75 2.7 1.5 4.5L10 11.1l-3.75 2.6 1.5-4.5L4 6.5h4.5L10 2z" fill="#fff"/>
+          </svg>
+          AI見積もり 無料・1分
+        </div>
+        <h1 class="hero-title">
+          庭木の費用、<br><em>すぐわかる。</em><br>写真を撮るだけ。
+        </h1>
+        <p class="hero-sub">
+          伐採・剪定・草刈りなど<br>
+          AIが概算金額をその場で提示します
+        </p>
+      </div>
+    </div>
+
+    <!-- CTAエリア -->
+    <div class="hero-cta-zone">
+      <div class="container">
+        <div class="hero-cta-wrap">
+          <button class="hero-btn-main" onclick="openModal('estimate')">
+            <svg style="display:inline;vertical-align:-3px;margin-right:6px;" width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2v11z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="12" cy="13" r="4" stroke="#fff" stroke-width="2"/>
+            </svg>
+            写真でAI見積もりを始める（無料）
+          </button>
+          <a href="https://rehome-navi.com/registration/reform/og/input?page_transition_source=rinoco_niwaki_ai_lp" class="hero-btn-sub" target="_blank" rel="noopener noreferrer">
+            現地調査を依頼する
+          </a>
+          <button class="btn-no-photo" onclick="openNoPhotoModal()">
+            写真が用意できない方はこちら
+          </button>
+        </div>
+        <p class="hero-cta-note">登録不要・完全無料 ／ 概算のためご参考値となります</p>
+        <div class="hero-trust-row">
+          <div class="hero-trust-item">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.35C17.25 22.15 21 17.25 21 12V7L12 2z" stroke="rgba(255,255,255,0.9)" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M9 12l2 2 4-4" stroke="rgba(255,255,255,0.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            厳選加盟店
+          </div>
+          <div class="hero-trust-sep"></div>
+          <div class="hero-trust-item">
+            <svg viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="10" stroke="rgba(255,255,255,0.9)" stroke-width="2"/>
+              <path d="M12 6v6l4 2" stroke="rgba(255,255,255,0.9)" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            最短即日対応
+          </div>
+          <div class="hero-trust-sep"></div>
+          <div class="hero-trust-item">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="rgba(255,255,255,0.9)" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+            累計利用1万件超
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ====================================
+     2. 悩み訴求（共感）
+     【変更③】顔文字→SVGアイコン
+     【変更④】短文化（3行以上の連続テキスト解消）
+==================================== -->
+<section id="pain">
+  <div class="container">
+    <span class="section-label">よくある不安</span>
+    <h2 class="section-title">こんなこと、<br>気になっていませんか？</h2>
+    <ul class="pain-list">
+      <li class="pain-item">
+        <!-- 変更③: 顔文字→SVGアイコン（? 円形）-->
+        <div class="pain-icon-wrap">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <div class="pain-text">
+          <strong>料金が事前にわからない</strong>
+          「見積もりだけでも来てもらったら<br>断れなそう」という怖さがある。
+        </div>
+      </li>
+      <li class="pain-item">
+        <!-- 変更③: 警告SVG -->
+        <div class="pain-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <div class="pain-text">
+          <strong>業者選びで失敗したくない</strong>
+          「相場がわからないから<br>ぼったくられないか心配…」
+        </div>
+      </li>
+      <li class="pain-item">
+        <!-- 変更③: 時計SVG -->
+        <div class="pain-icon-wrap">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div class="pain-text">
+          <strong>ずっと後回しにしてしまっている</strong>
+          「どの業者に頼めばいいかわからず<br>連絡できずにいる」
+        </div>
+      </li>
+    </ul>
+    <div class="pain-resolve">
+      <strong>写真と簡単な入力で「まず料金の目安」を確認できます。</strong><br>
+      納得してから、現地調査を依頼するかどうか決められます。
+    </div>
+  </div>
+</section>
+
+<!-- ====================================
+     3. サービス説明
+==================================== -->
+<section id="service">
+  <div class="container">
+    <span class="section-label">サービス概要</span>
+    <h2 class="section-title">2段階で、安心して<br>手続きできます</h2>
+    <p class="section-desc">まず概算で料金を把握。納得したら、現地調査へ進める設計になっています。</p>
+
+    <div class="service-flow">
+      <div class="service-step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <p class="step-title">写真＋簡単な質問で概算見積もり</p>
+          <p class="step-desc">庭木の写真を送り、木の本数・高さなど簡単な質問に回答するだけ。料金の目安を確認できます。</p>
+          <span class="step-tag">⏱ 約1〜2分</span>
+        </div>
+      </div>
+      <div class="service-step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <p class="step-title">納得できたら、現地調査を依頼</p>
+          <p class="step-desc">「概算と大きく違わない」と感じたら、現地調査を依頼。プロが現場を確認して、正式な金額をお伝えします。</p>
+          <span class="step-tag">現地調査も無料</span>
+        </div>
+      </div>
+      <div class="service-step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <p class="step-title">厳選された1社をご紹介</p>
+          <p class="step-desc">何社も比較する手間はありません。ご依頼内容に合わせた1社をご紹介します。</p>
+          <span class="step-tag">複数業者への連絡不要</span>
+        </div>
+      </div>
+    </div>
+    <div class="service-note">
+      ※ 概算見積もりはあくまで参考金額です。現地の状況により変動することがあります。
+    </div>
+  </div>
+</section>
+
+<!-- ====================================
+     【変更②】AI概算見積もりセクション（新規追加）
+     サービス説明の直後に配置
+==================================== -->
+<section id="ai-estimate-section">
+  <div class="container">
+    <div class="ai-est-header">
+      <span class="section-label">AI概算見積もり</span>
+      <h2 class="section-title">写真と簡単な入力で<br>概算見積もり</h2>
+      <p class="section-desc">
+        「料金の目安だけ知りたい」という方へ。<br>
+        3ステップで完了します。
+      </p>
+    </div>
+
+    <!-- 3ステップ：スマホ縦並び -->
+    <div class="ai-est-steps">
+      <div class="ai-est-step-card">
+        <!-- 変更③: 顔文字→SVGアイコン（フォーム） -->
+        <div class="ai-step-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <div class="ai-est-step-body">
+          <p class="ai-est-step-num">Step 1</p>
+          <p class="ai-est-step-title">簡単な質問に回答</p>
+          <p class="ai-est-step-desc">作業内容・木の高さや本数など、選択式で回答するだけ。「不明」でもOK。</p>
+        </div>
+      </div>
+      <div class="ai-est-step-card">
+        <!-- 変更③: 顔文字→SVGアイコン（カメラ） -->
+        <div class="ai-step-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        </div>
+        <div class="ai-est-step-body">
+          <p class="ai-est-step-num">Step 2</p>
+          <p class="ai-est-step-title">写真をアップロード</p>
+          <p class="ai-est-step-desc">庭木の全体が写った写真を1枚送るだけ。写真があると精度が上がります。</p>
+        </div>
+      </div>
+      <div class="ai-est-step-card">
+        <!-- 変更③: 顔文字→SVGアイコン（円マーク） -->
+        <div class="ai-step-icon-wrap">
+          <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <div class="ai-est-step-body">
+          <p class="ai-est-step-num">Step 3</p>
+          <p class="ai-est-step-title">概算金額を確認</p>
+          <p class="ai-est-step-desc">参考となる価格レンジをお伝えします。確定金額ではありませんが、目安として参考にできます。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ai-est-cta-wrap">
+      <button class="btn-ai-est" onclick="openModal('estimate')">1分で見積もりを試す →</button>
+      <p class="ai-est-note">※ 表示される金額は概算です。正確な金額は現地確認後にご提示します。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================
+     4. 概算見積もりCTA（重要）
+==================================== -->
+<section id="estimate">
+  <div class="container">
+    <div class="estimate-card">
+      <span class="estimate-card-label">AI概算見積もり</span>
+      <h2 class="estimate-card-title">写真を送るだけで、<br>料金の目安がわかります</h2>
+      <p class="estimate-card-desc">
+        写真と入力情報をもとに、参考になる価格レンジをお伝えします。<br>
+        完全無料・登録不要。
+      </p>
+      <div class="estimate-steps">
+        <div class="est-step">
+          <!-- 変更③: SVGカメラ -->
+          <div class="est-step-icon-wrap"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
+          <span class="est-step-text">写真を<br>アップロード</span>
+        </div>
+        <div class="est-step">
+          <!-- 変更③: SVGフォーム -->
+          <div class="est-step-icon-wrap"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg></div>
+          <span class="est-step-text">簡単な<br>質問に回答</span>
+        </div>
+        <div class="est-step">
+          <!-- 変更③: SVG円マーク -->
+          <div class="est-step-icon-wrap"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+          <span class="est-step-text">概算金額を<br>確認</span>
+        </div>
+      </div>
+      <button class="btn-primary" onclick="openModal('estimate')">無料で概算見積もりを試す →</button>
+      <p class="estimate-card-note">※ 表示される金額は概算です。正確な金額は現地確認後にお伝えします。</p>
+    </div>
+
+    <div class="estimate-precision" style="margin-top:20px;">
+      <p class="precision-title">精度を高める3つのポイント</p>
+      <ul class="precision-list">
+        <li class="precision-item"><span class="precision-item-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>写真は「全体が見える角度」から撮影すると精度が上がります</li>
+        <li class="precision-item">木の高さ・本数などの情報を入力することでレンジが絞られます</li>
+        <li class="precision-item">不明な項目は「不明」を選択できるので、わからなくてもOK</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================
+     5. 安心要素
+==================================== -->
+<section id="trust">
+  <div class="container">
+    <span class="section-label">安心ポイント</span>
+    <h2 class="section-title">「また後回し」にしなくていい<br>理由があります</h2>
+
+    <div class="trust-grid">
+      <div class="trust-card">
+        <!-- 変更③: 電話オフSVG -->
+        <div class="trust-card-icon"><svg viewBox="0 0 24 24"><path d="M10.68 13.31a16 16 0 0 0 3.41 2.6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7 2 2 0 0 1 1.72 2v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.42 19.42 0 0 1 4.43 9.88a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.34 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.31 8.91"/><line x1="23" y1="1" x2="1" y2="23"/></svg></div>
+        <p class="trust-card-title">しつこい営業は<br>ありません</p>
+        <p class="trust-card-desc">概算を確認した後、どうするかはあなたが決めます</p>
+      </div>
+      <div class="trust-card">
+        <!-- 変更③: 虫眼鏡SVG -->
+        <div class="trust-card-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <p class="trust-card-title">現地調査も<br>完全無料</p>
+        <p class="trust-card-desc">正式な見積もり確認まで費用はかかりません</p>
+      </div>
+      <div class="trust-card">
+        <!-- 変更③: 家SVG -->
+        <div class="trust-card-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <p class="trust-card-title">業者選びを<br>代わりに行います</p>
+        <p class="trust-card-desc">複数社への問い合わせは不要です</p>
+      </div>
+      <div class="trust-card">
+        <!-- 変更③: 書類SVG -->
+        <div class="trust-card-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <p class="trust-card-title">断っても<br>問題ありません</p>
+        <p class="trust-card-desc">現地調査後に断ることも可能です</p>
+      </div>
+    </div>
+
+    <div class="trust-voice">
+      <p class="trust-voice-title">ご利用されたお客様より</p>
+      <div class="voice-item">
+        <!-- 変更③: 人物SVG -->
+        <div class="voice-avatar"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <div class="voice-body">
+          <p class="voice-name">50代・女性 / 庭木の剪定</p>
+          <p class="voice-text">「最初から業者に来てもらうのが怖かったので、先に目安がわかって安心しました。概算通りの金額で作業してもらえました。」</p>
+        </div>
+      </div>
+      <div class="voice-item">
+        <!-- 変更③: 人物SVG -->
+        <div class="voice-avatar"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <div class="voice-body">
+          <p class="voice-name">60代・男性 / 草刈り</p>
+          <p class="voice-text">「相場がわからなくて業者に連絡できずにいましたが、概算で大体の金額を知ってから、安心して依頼できました。」</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================
+     6. 料金説明
+==================================== -->
+<section id="pricing">
+  <div class="container">
+    <span class="section-label">料金の目安</span>
+    <h2 class="section-title">主な作業の<br>参考価格帯</h2>
+    <p class="section-desc">以下はあくまで参考です。木の状態・作業条件により変動します。</p>
+
+    <div class="pricing-table">
+      <div class="pricing-head">
+        <span>作業内容</span>
+        <span>参考価格帯</span>
+      </div>
+      <div class="pricing-row">
+        <span>剪定（中木 1本）</span>
+        <span>5,000〜15,000円程度</span>
+      </div>
+      <div class="pricing-row">
+        <span>剪定（高木 1本）</span>
+        <span>10,000〜25,000円程度</span>
+      </div>
+      <div class="pricing-row">
+        <span>伐採（中木 1本）</span>
+        <span>10,000〜25,000円程度</span>
+      </div>
+      <div class="pricing-row">
+        <span>伐採（高木 1本）</span>
+        <span>20,000〜45,000円程度</span>
+      </div>
+      <div class="pricing-row">
+        <span>草刈り（〜50㎡）</span>
+        <span>15,000〜30,000円程度</span>
+      </div>
+      <div class="pricing-row">
+        <span>抜根（中サイズ）</span>
+        <span>15,000〜30,000円程度</span>
+      </div>
+    </div>
+
+    <p class="pricing-note">
+      ※ 上記は概算の参考値です。作業本数・ゴミ回収・現地条件により変動します。<br>
+      <strong>より正確な金額は、現地調査でご確認いただけます。</strong>
+    </p>
+
+    <div style="margin-top:24px;">
+      <button class="btn-primary" onclick="openModal('estimate')">自分の庭の概算を確認する</button>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================
+     7. 利用の流れ
+==================================== -->
+<section id="flow">
+  <div class="container">
+    <span class="section-label">ご利用の流れ</span>
+    <h2 class="section-title">4ステップで完了します</h2>
+
+    <div class="flow-list">
+      <div class="flow-item">
+        <div class="flow-num">1</div>
+        <div class="flow-body">
+          <p class="flow-title">写真を撮って、入力する</p>
+          <p class="flow-desc">庭木の写真と、作業内容・本数などの簡単な情報を入力します。</p>
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-num">2</div>
+        <div class="flow-body">
+          <p class="flow-title">概算見積もりを確認</p>
+          <p class="flow-desc">参考となる価格レンジをお伝えします。この時点では何も決める必要はありません。</p>
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-num">3</div>
+        <div class="flow-body">
+          <p class="flow-title">現地調査を依頼（希望者のみ）</p>
+          <p class="flow-desc">「もう少し正確な金額を知りたい」という方は、現地調査を依頼できます。調査費用はかかりません。</p>
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-num">4</div>
+        <div class="flow-body">
+          <p class="flow-title">正式見積もり → 作業へ</p>
+          <p class="flow-desc">現地で確認した内容をもとに、正式な金額をご提示。納得できれば、作業をご依頼いただけます。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================
+     FAQ
+==================================== -->
+<section id="faq">
+  <div class="container">
+    <span class="section-label">よくある質問</span>
+    <h2 class="section-title">疑問に答えます</h2>
+    <ul class="faq-list">
+      <li class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-icon">Q</span>
+          <span class="faq-q-text">概算見積もりと実際の金額はどのくらい違いますか？</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a">概算はあくまで参考金額です。木の状態や作業条件により異なりますが、現地調査での正式見積もりとの差異を確認できます。詳細は現地確認後にお伝えします。</div>
+      </li>
+      <li class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-icon">Q</span>
+          <span class="faq-q-text">概算を確認した後、必ず依頼しないといけませんか？</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a">いいえ。概算を確認しても、現地調査を依頼するかどうかはご自由です。現地調査後に断ることも可能です。無理な営業はいたしません。</div>
+      </li>
+      <li class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-icon">Q</span>
+          <span class="faq-q-text">どんな作業に対応していますか？</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a">剪定・伐採・抜根・草刈りに対応しています。複数の作業をまとめてご依頼いただくことも可能です。</div>
+      </li>
+      <li class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-icon">Q</span>
+          <span class="faq-q-text">写真がうまく撮れなくても大丈夫ですか？</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a">全体が写っていれば問題ありません。「不明」と入力できる項目も多いため、専門知識がなくても回答できます。</div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ====================================
+     8. 最終CTA
+==================================== -->
+<section id="final-cta">
+  <div class="container">
+    <div class="final-cta-inner">
+      <span class="final-cta-label">まずはここから</span>
+      <h2 class="final-cta-title">今日、一歩だけ<br>動いてみませんか？</h2>
+      <p class="final-cta-desc">
+        庭木の手入れは「いつかやろう」とになりがちです。<br>
+        まず料金の目安を知るだけでも、<br>
+        前に進みやすくなります。
+      </p>
+      <div class="final-cta-buttons">
+        <div>
+          <button class="btn-primary" onclick="openModal('estimate')">無料で概算見積もりを試す</button>
+          <p class="cta-sub-note">写真＋簡単入力｜約1〜2分｜登録不要</p>
+        </div>
+        <div class="final-cta-divider">または</div>
+        <div>
+          <button class="btn-secondary" onclick="openModal('contact')">正確な見積もりを依頼する（現地調査）</button>
+          <p class="cta-sub-note">現地調査も無料｜断ることも可能</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================
+     フッター
+==================================== -->
+<footer>
+  <div class="footer-links">
+    <a href="#">プライバシーポリシー</a>
+    <a href="#">特定商取引法に基づく表記</a>
+  </div>
+  <p>© 2024 リフォーム・庭木マッチングサービス All rights reserved.</p>
+</footer>
+
+<!-- ====================================
+     モーダル：見積もり＆問い合わせ
+==================================== -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModalIfOutside(event)">
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <span class="modal-title" id="modal-title">無料 概算見積もり</span>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+
+      <!-- ===== 見積もりフロー ===== -->
+      <div id="flow-estimate">
+
+        <!-- Step 1: 作業選択 -->
+        <div class="modal-step active" id="step1">
+          <div class="step-indicator">
+            <div class="step-dot active" id="dot1"></div>
+            <div class="step-dot" id="dot2"></div>
+            <div class="step-dot" id="dot3"></div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">作業内容を選んでください <span class="required">必須</span></label>
+            <div class="radio-grid">
+              <label class="radio-option"><input type="radio" name="work" value="pruning"> 剪定</label>
+              <label class="radio-option"><input type="radio" name="work" value="cutting"> 伐採</label>
+              <label class="radio-option"><input type="radio" name="work" value="roots"> 抜根</label>
+              <label class="radio-option"><input type="radio" name="work" value="mowing"> 草刈り</label>
+            </div>
+          </div>
+
+          <!-- 剪定・伐採・抜根 用質問 -->
+          <div id="q-trees" style="display:none;">
+            <div class="form-group">
+              <label class="form-label">木の高さ <span class="required">必須</span></label>
+              <div class="radio-grid">
+                <label class="radio-option"><input type="radio" name="height" value="low"> 〜3m</label>
+                <label class="radio-option"><input type="radio" name="height" value="mid"> 3〜5m</label>
+                <label class="radio-option"><input type="radio" name="height" value="high"> 5m以上</label>
+                <label class="radio-option"><input type="radio" name="height" value="unknown"> 不明</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">本数 <span class="required">必須</span></label>
+              <input type="number" class="number-input" id="tree-count" placeholder="例：3（本）" min="1">
+              <p class="upload-error" id="tree-count-error" style="font-size:12px;color:#e53e3e;margin-top:4px;display:none;">本数を入力してください</p>
+            </div>
+          </div>
+
+          <!-- 草刈り 用質問 -->
+          <div id="q-mowing" style="display:none;">
+            <div class="form-group">
+              <label class="form-label">面積 <span class="required">必須</span></label>
+              <div class="radio-grid">
+                <label class="radio-option"><input type="radio" name="area" value="xs"> 〜100㎡<small style="display:block;font-size:11px;color:var(--text-soft);font-weight:400;">基本料金の範囲</small></label>
+                <label class="radio-option"><input type="radio" name="area" value="s"> 100〜300㎡<small style="display:block;font-size:11px;color:var(--text-soft);font-weight:400;">㎡単価 300円/㎡</small></label>
+                <label class="radio-option"><input type="radio" name="area" value="m"> 300〜500㎡<small style="display:block;font-size:11px;color:var(--text-soft);font-weight:400;">㎡単価 220円/㎡</small></label>
+                <label class="radio-option"><input type="radio" name="area" value="l"> 500㎡以上<small style="display:block;font-size:11px;color:var(--text-soft);font-weight:400;">㎡単価 140円/㎡</small></label>
+                <label class="radio-option"><input type="radio" name="area" value="unknown"> 不明</label>
+              </div>
+            </div>
+            <!-- 草の高さ -->
+            <div class="form-group">
+              <label class="form-label">草の高さ</label>
+              <div class="radio-grid">
+                <label class="radio-option"><input type="radio" name="grass-h" value="low"> 低い<small style="display:block;font-size:11px;color:var(--text-soft);font-weight:400;">〜30cm程度</small></label>
+                <label class="radio-option"><input type="radio" name="grass-h" value="mid"> 普通<small style="display:block;font-size:11px;color:var(--text-soft);font-weight:400;">30〜80cm程度</small></label>
+                <label class="radio-option"><input type="radio" name="grass-h" value="high"> 高い<small style="display:block;font-size:11px;color:var(--text-soft);font-weight:400;">80cm以上</small></label>
+                <label class="radio-option"><input type="radio" name="grass-h" value="unknown"> 不明</label>
+              </div>
+            </div>
+            <!-- 地面の種類 -->
+            <div class="form-group">
+              <label class="form-label">地面の種類 <span class="required">必須</span></label>
+              <p style="font-size:12px;color:var(--text-soft);margin-bottom:8px;">草刈り機が使えるかどうかに影響します</p>
+              <div class="radio-grid">
+                <label class="radio-option"><input type="radio" name="ground-type" value="soil"> 土（草刈り機可）<small style="display:block;font-size:11px;color:var(--text-soft);font-weight:400;">通常の草刈り作業</small></label>
+                <label class="radio-option"><input type="radio" name="ground-type" value="gravel"> 砂利・砕石<small style="display:block;font-size:11px;color:var(--text-soft);font-weight:400;">機械使用に制限あり</small></label>
+                <label class="radio-option"><input type="radio" name="ground-type" value="mixed"> 土と砂利が混在<small style="display:block;font-size:11px;color:var(--text-soft);font-weight:400;">部分的に手作業が必要</small></label>
+                <label class="radio-option"><input type="radio" name="ground-type" value="unknown"> 不明</label>
+              </div>
+            </div>
+            <!-- 手作業（草むしり）の要否 -->
+            <div class="form-group">
+              <label class="form-label">手作業（草むしり）の要否</label>
+              <p style="font-size:12px;color:var(--text-soft);margin-bottom:8px;">根から抜く作業・機械が入れない箇所など</p>
+              <div class="radio-grid">
+                <label class="radio-option"><input type="radio" name="hand-work" value="none"> 不要<small style="display:block;font-size:11px;color:var(--text-soft);font-weight:400;">機械のみでOK</small></label>
+                <label class="radio-option"><input type="radio" name="hand-work" value="partial"> 一部必要<small style="display:block;font-size:11px;color:var(--text-soft);font-weight:400;">花壇まわり・際など</small></label>
+                <label class="radio-option"><input type="radio" name="hand-work" value="full"> 全面必要<small style="display:block;font-size:11px;color:var(--text-soft);font-weight:400;">砂利・根から抜く等</small></label>
+                <label class="radio-option"><input type="radio" name="hand-work" value="unknown"> 不明</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- ④ 剪定の希望内容（剪定選択時のみ表示） -->
+          <div id="q-pruning-level" style="display:none;">
+            <div class="form-group">
+              <label class="form-label">剪定の希望内容</label>
+              <div class="radio-grid">
+                <label class="radio-option"><input type="radio" name="pruning-level" value="light"> 軽く整える<small style="display:block;font-size:11px;color:var(--text-soft);font-weight:400;">形を整える程度</small></label>
+                <label class="radio-option"><input type="radio" name="pruning-level" value="mid"> 少し短くする<small style="display:block;font-size:11px;color:var(--text-soft);font-weight:400;">全体的にボリュームダウン</small></label>
+                <label class="radio-option"><input type="radio" name="pruning-level" value="heavy"> しっかり剪定<small style="display:block;font-size:11px;color:var(--text-soft);font-weight:400;">大きく高さ・枝を落とす</small></label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">ゴミの回収 <span class="required">必須</span></label>
+            <div class="radio-grid">
+              <label class="radio-option"><input type="radio" name="trash" value="yes"> 必要</label>
+              <label class="radio-option"><input type="radio" name="trash" value="no"> 不要</label>
+              <label class="radio-option"><input type="radio" name="trash" value="unknown"> 不明</label>
+            </div>
+          </div>
+
+          <!-- 必須項目が全部揃うまで無効 -->
+          <button class="btn-primary" id="btn-next-step2" onclick="goStep2()" disabled style="opacity:0.4;cursor:not-allowed;">次へ →</button>
+        </div>
+
+        <!-- =============================================
+             Step 2: 写真アップロード
+             【変更⑥】必須バリデーション・カメラ起動・サムネイル
+             【変更⑦】写真なし導線パネル
+        ============================================= -->
+        <div class="modal-step" id="step2">
+          <div class="step-indicator">
+            <div class="step-dot done" id="dot1b"></div>
+            <div class="step-dot active" id="dot2b"></div>
+            <div class="step-dot" id="dot3b"></div>
+          </div>
+          <!-- 写真アップロード：草刈り=1枚、樹木=3枚必須に出し分け -->
+
+          <!-- ▼ 草刈り用（1枚必須） -->
+          <div id="upload-section-mowing" style="display:none;">
+            <div class="form-group">
+              <label class="form-label">全体写真 <span class="required">必須</span></label>
+              <p style="font-size:12px;color:var(--text-soft);margin-bottom:8px;">草刈りエリア全体がわかる写真（正確なお見積りのため）</p>
+              <div class="upload-area" id="upload-area-m1">
+                <input type="file" id="file-input-m1" accept="image/*" capture="environment" onchange="handleUpload('m1')">
+                <div class="upload-inner"><div class="upload-icon-wrap"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
+                <p class="upload-text">タップして写真を選ぶ / 撮影する</p></div>
+              </div>
+              <p class="upload-error" id="upload-error-m1">写真をアップロードしてください</p>
+              <div class="upload-preview" id="upload-preview-m1">
+              <div class="preview-card">
+                <img id="photo-thumb-m1" src="" alt="アップロード済み写真">
+                <button class="preview-retake" onclick="retakePhoto('m1')">✕ 撮り直す</button>
+              </div>
+              <span class="preview-badge">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                アップロード完了
+              </span>
+            </div>
+            </div>
+          </div>
+
+          <!-- ▼ 樹木用（3枚必須：根元 / 全体 / 葉枝） -->
+          <div id="upload-section-trees" style="display:none;">
+            <!-- 1枚目：木の根元 -->
+            <div class="form-group">
+              <label class="form-label">① 木の根元 <span class="required">必須</span></label>
+              <p style="font-size:12px;color:var(--text-soft);margin-bottom:8px;">幹の太さの確認に使います（正確なお見積りのため）</p>
+              <div class="upload-area" id="upload-area-t1">
+                <input type="file" id="file-input-t1" accept="image/*" capture="environment" onchange="handleUpload('t1')">
+                <div class="upload-inner"><div class="upload-icon-wrap"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
+                <p class="upload-text">タップして写真を選ぶ / 撮影する</p></div>
+              </div>
+              <p class="upload-error" id="upload-error-t1">写真をアップロードしてください</p>
+              <div class="upload-preview" id="upload-preview-t1">
+              <div class="preview-card">
+                <img id="photo-thumb-t1" src="" alt="アップロード済み写真">
+                <button class="preview-retake" onclick="retakePhoto('t1')">✕ 撮り直す</button>
+              </div>
+              <span class="preview-badge">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                アップロード完了
+              </span>
+            </div>
+            </div>
+            <!-- 2枚目：全体写真 -->
+            <div class="form-group">
+              <label class="form-label">② 全体写真 <span class="required">必須</span></label>
+              <p style="font-size:12px;color:var(--text-soft);margin-bottom:8px;">木の高さ・形の確認に使います</p>
+              <div class="upload-area" id="upload-area-t2">
+                <input type="file" id="file-input-t2" accept="image/*" capture="environment" onchange="handleUpload('t2')">
+                <div class="upload-inner"><div class="upload-icon-wrap"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
+                <p class="upload-text">タップして写真を選ぶ / 撮影する</p></div>
+              </div>
+              <p class="upload-error" id="upload-error-t2">写真をアップロードしてください</p>
+              <div class="upload-preview" id="upload-preview-t2">
+              <div class="preview-card">
+                <img id="photo-thumb-t2" src="" alt="アップロード済み写真">
+                <button class="preview-retake" onclick="retakePhoto('t2')">✕ 撮り直す</button>
+              </div>
+              <span class="preview-badge">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                アップロード完了
+              </span>
+            </div>
+            </div>
+            <!-- 3枚目：葉・枝の状態 -->
+            <div class="form-group">
+              <label class="form-label">③ 葉・枝の状態 <span class="required">必須</span></label>
+              <p style="font-size:12px;color:var(--text-soft);margin-bottom:8px;">作業量の把握に使います</p>
+              <div class="upload-area" id="upload-area-t3">
+                <input type="file" id="file-input-t3" accept="image/*" capture="environment" onchange="handleUpload('t3')">
+                <div class="upload-inner"><div class="upload-icon-wrap"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
+                <p class="upload-text">タップして写真を選ぶ / 撮影する</p></div>
+              </div>
+              <p class="upload-error" id="upload-error-t3">写真をアップロードしてください</p>
+              <div class="upload-preview" id="upload-preview-t3">
+              <div class="preview-card">
+                <img id="photo-thumb-t3" src="" alt="アップロード済み写真">
+                <button class="preview-retake" onclick="retakePhoto('t3')">✕ 撮り直す</button>
+              </div>
+              <span class="preview-badge">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                アップロード完了
+              </span>
+            </div>
+            </div>
+          </div>
+
+          <!-- 旧upload-area・file-inputは非表示で残す（calcEstimate等で参照される可能性があるため） -->
+          <div style="display:none;">
+            <div class="upload-area" id="upload-area">
+              <input type="file" id="file-input" accept="image/*">
+            </div>
+            <p class="upload-error" id="upload-error"></p>
+            <div class="upload-preview" id="upload-preview">
+              <img id="photo-thumb" src="" alt=""><span id="file-name"></span>
+            </div>
+          </div>
+          <div style="display:flex;gap:10px;margin-top:4px;">
+            <button class="btn-secondary" onclick="goStep1()" style="flex:1;">← 戻る</button>
+            <!-- 変更⑥: バリデーション付き次へ -->
+            <button class="btn-primary" onclick="goStep3()" style="flex:2;">概算を見る</button>
+          </div>
+          <!-- 写真なし導線：理由選択 → 現地調査URLへ -->
+          <div style="margin-top:16px;text-align:center;">
+            <button style="background:none;border:none;font-size:13px;color:var(--text-soft);text-decoration:underline;cursor:pointer;font-family:var(--font-sans);padding:8px;" onclick="toggleNoPhotoPanel()">
+              写真が用意できない方はこちら
+            </button>
+            <div id="no-photo-panel" style="display:none;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px;margin-top:8px;text-align:left;">
+              <p style="font-size:13px;font-weight:700;color:var(--text-mid);margin-bottom:10px;">撮影できない理由を教えてください</p>
+              <div style="display:flex;flex-direction:column;gap:8px;">
+                <button class="no-photo-inner-btn" onclick="goNoPhotoUrl(this)">今すぐ手元に写真がない</button>
+                <button class="no-photo-inner-btn" onclick="goNoPhotoUrl(this)">スマホの操作に不安がある</button>
+                <button class="no-photo-inner-btn" onclick="goNoPhotoUrl(this)">まず相談・見積もりだけしたい</button>
+                <button class="no-photo-inner-btn" onclick="goNoPhotoUrl(this)">その他の理由</button>
+              </div>
+              <!-- 選択後に表示するCTAボタン -->
+              <div id="no-photo-cta" style="display:none;margin-top:14px;">
+                <a id="no-photo-cta-link"
+                   href="https://rehome-navi.com/registration/reform/og/input?page_transition_source=rinoco_niwaki_ai_lp"
+                   target="_blank" rel="noopener noreferrer"
+                   style="display:block;width:100%;background:#22ba4f;color:#fff;font-size:15px;font-weight:700;text-align:center;text-decoration:none;border-radius:50px;padding:14px 20px;box-sizing:border-box;letter-spacing:0.02em;">
+                  現地調査を直接依頼する（無料）
+                </a>
+                <p style="font-size:11px;color:var(--text-soft);text-align:center;margin-top:6px;">無料・しつこい営業なし</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- =============================================
+             Step 3: 結果表示
+             【変更⑤】単一金額 + 内訳（小計・消費税・合計）
+        ============================================= -->
+        <div class="modal-step" id="step3">
+          <div class="step-indicator">
+            <div class="step-dot done"></div>
+            <div class="step-dot done"></div>
+            <div class="step-dot active"></div>
+          </div>
+          <div class="result-box">
+            <p class="result-label">概算見積もり（参考金額）</p>
+            <!-- 変更⑤: 単一金額を大きく -->
+            <p class="result-price" id="result-price">35,000円</p>
+            <p class="result-price-note">※ 概算金額（税込）</p>
+          </div>
+          <!-- 変更⑤: 内訳テーブル（小計・消費税・合計） -->
+          <div class="result-breakdown">
+            <p class="result-breakdown-title">内 訳</p>
+            <div class="breakdown-row">
+              <span>作業費（目安）</span><span id="bd-work">—</span>
+            </div>
+            <div class="breakdown-row">
+              <span>処分・運搬費（目安）</span><span id="bd-disposal">—</span>
+            </div>
+            <div class="breakdown-row">
+              <span>小計（税抜）</span><span id="bd-subtotal">—</span>
+            </div>
+            <div class="breakdown-row">
+              <span>消費税（10%）</span><span id="bd-tax">—</span>
+            </div>
+            <!-- 変更⑤: 合計行を強調 -->
+            <div class="breakdown-row total">
+              <span><strong>合計（税込・概算）</strong></span>
+              <span id="bd-total">—</span>
+            </div>
+          </div>
+          <div class="result-caveat">
+            ※ この金額はあくまで概算です。現地の状況・作業条件により変動します。
+          </div>
+          <div class="result-next">
+            <p class="result-next-title">より正確な見積もりを希望される方へ</p>
+            <p class="result-next-desc">現地調査では、正式な金額をお伝えします。<br>追加費用の有無も事前に確認できます。</p>
+            <button class="btn-gold" onclick="switchToContact()">プロに現地確認してもらう（無料）</button>
+            <p class="btn-note" style="margin-top:8px;">現地調査後にお断りすることも可能です</p>
+          </div>
+          <button class="btn-secondary" onclick="closeModal()" style="margin-top:4px;">概算だけ確認してこのまま閉じる</button>
+        </div>
+      </div>
+
+      <!-- ===== 現地調査依頼フォーム ===== -->
+      <div id="flow-contact" style="display:none;">
+        <div id="contact-form-wrap">
+          <p style="font-size:14px;color:var(--text-mid);margin-bottom:20px;line-height:1.7;">
+            現地を確認した上で、正確な見積もりをお伝えします。<br>
+            まずはお名前とご連絡先を教えてください。
+          </p>
+          <div class="contact-form">
+            <div class="form-group">
+              <label class="form-label">お名前 <span class="required">必須</span></label>
+              <input type="text" id="contact-name" placeholder="例：山田 太郎">
+              <p class="upload-error" id="name-error" style="margin-top:4px;">お名前を入力してください</p>
+            </div>
+            <div class="form-group">
+              <label class="form-label">電話番号 <span class="required">必須</span></label>
+              <input type="tel" id="contact-tel" placeholder="例：090-0000-0000" inputmode="tel">
+              <p class="upload-error" id="tel-error" style="margin-top:4px;">電話番号を入力してください</p>
+            </div>
+            <div class="form-group">
+              <label class="form-label">メールアドレス <span class="required">必須</span></label>
+              <input type="email" id="contact-email" placeholder="例：sample@example.com" inputmode="email">
+              <p class="upload-error" id="email-error" style="margin-top:4px;">正しいメールアドレスを入力してください</p>
+            </div>
+            <div class="form-group">
+              <label class="form-label">郵便番号 <span class="required">必須</span></label>
+              <input type="text" id="contact-postal"
+                placeholder="例：150-0001"
+                maxlength="8"
+                inputmode="numeric"
+                oninput="this.value=this.value.replace(/[^0-9\-]/g,'')">
+              <p style="font-size:12px;color:var(--text-soft);margin-top:4px;">ハイフンあり・なし どちらでも（例：150-0001 または 1500001）</p>
+              <p class="upload-error" id="postal-error" style="margin-top:4px;">郵便番号を入力してください</p>
+            </div>
+            <button class="btn-gold" onclick="submitContact()">現地調査を依頼する（無料）</button>
+            <p class="contact-privacy">
+              ご入力いただいた情報は、サービス提供のみに使用します。<br>
+              無理な営業はいたしません。
+            </p>
+          </div>
+        </div>
+        <div id="contact-thanks" style="display:none;">
+          <div class="thanks-wrap">
+            <!-- 変更③: チェックSVG -->
+            <div class="thanks-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <h3 class="thanks-title">ありがとうございます</h3>
+            <p class="thanks-desc">
+              現地調査のご依頼を承りました。<br>
+              担当者よりご連絡いたします。<br><br>
+              しつこい営業はいたしませんので、<br>
+              安心してお待ちください。
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ====================================
+     JavaScript
+     【変更⑤】単一金額（中央値）＋小計/消費税/合計の内訳計算
+     【変更⑥】写真必須バリデーション・サムネイルプレビュー
+     【変更⑦】写真なし導線（外部URLへ遷移）
+==================================== -->
+<script>
+  /* =============================================
+     変更⑦: 写真なし導線の遷移先URL
+  ============================================= */
+  var NO_PHOTO_URL = 'https://rehome-navi.com/registration/reform/og/input?page_transition_source=rinoco_niwaki_ai_lp';
+
+  /* =============================================
+     モーダル制御
+  ============================================= */
+  function openModal(type) {
+    var overlay = document.getElementById('modal-overlay');
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    if (type === 'estimate') {
+      document.getElementById('modal-title').textContent = '無料 概算見積もり';
+      document.getElementById('flow-estimate').style.display = 'block';
+      document.getElementById('flow-contact').style.display = 'none';
+      showStep(1);
+    } else {
+      document.getElementById('modal-title').textContent = '現地調査を依頼する（無料）';
+      document.getElementById('flow-estimate').style.display = 'none';
+      document.getElementById('flow-contact').style.display = 'block';
+    }
+  }
+  function closeModal() {
+    document.getElementById('modal-overlay').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  function closeModalIfOutside(e) {
+    if (e.target === document.getElementById('modal-overlay')) closeModal();
+  }
+  function switchToContact() {
+    document.getElementById('modal-title').textContent = '現地調査を依頼する（無料）';
+    document.getElementById('flow-estimate').style.display = 'none';
+    document.getElementById('flow-contact').style.display = 'block';
+  }
+
+  /* 変更⑦: 写真なしモーダル制御 */
+  function openNoPhotoModal() {
+    var el = document.getElementById('no-photo-modal-overlay');
+    if (!el) {
+      /* モーダルが存在しない場合は直接URLへ */
+      window.location.href = NO_PHOTO_URL;
+      return;
+    }
+    el.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeNoPhotoModal() {
+    var el = document.getElementById('no-photo-modal-overlay');
+    if (el) el.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  function closeNoPhotoModalIfOutside(e) {
+    var el = document.getElementById('no-photo-modal-overlay');
+    if (el && e.target === el) closeNoPhotoModal();
+  }
+  /* 理由ボタン選択 → ボタンをアクティブ表示しCTAを出現させる */
+  function goNoPhotoUrl(btn) {
+    /* 全ボタンを未選択状態に戻す */
+    var panel = document.getElementById('no-photo-panel');
+    if (panel) {
+      panel.querySelectorAll('.no-photo-inner-btn').forEach(function(b) {
+        b.style.background  = '#fff';
+        b.style.color       = 'var(--green-dark)';
+        b.style.borderColor = 'var(--border)';
+        b.style.fontWeight  = '600';
+      });
+      /* 選択ボタンをハイライト（緑背景・白文字） */
+      if (btn) {
+        btn.style.background  = '#22ba4f';
+        btn.style.color       = '#ffffff';
+        btn.style.borderColor = '#22ba4f';
+        btn.style.fontWeight  = '700';
+      }
+    }
+    /* CTAを表示 */
+    var cta = document.getElementById('no-photo-cta');
+    if (cta) cta.style.display = 'block';
+  }
+  /* Step2内パネルトグル */
+  function toggleNoPhotoPanel() {
+    var p = document.getElementById('no-photo-panel');
+    if (!p) return;
+    p.style.display = p.style.display === 'none' ? 'block' : 'none';
+    /* パネルを開いたときCTAは非表示にリセット */
+    if (p.style.display === 'block') {
+      var cta = document.getElementById('no-photo-cta');
+      if (cta) cta.style.display = 'none';
+      p.querySelectorAll('.no-photo-inner-btn').forEach(function(b) {
+        b.style.background  = '#fff';
+        b.style.color       = 'var(--green-dark)';
+        b.style.borderColor = 'var(--border)';
+        b.style.fontWeight  = '600';
+      });
+    }
+  }
+
+  /* =============================================
+     見積もりステップ制御
+  ============================================= */
+  function showStep(n) {
+    [1,2,3].forEach(function(i) {
+      document.getElementById('step'+i).classList.toggle('active', i === n);
+    });
+    /* Step2以外ではパネルを閉じる */
+    if (n !== 2) {
+      var p = document.getElementById('no-photo-panel');
+      if (p) p.style.display = 'none';
+    }
+  }
+  function goStep1() { showStep(1); }
+  function goStep2() {
+    var work = document.querySelector('input[name="work"]:checked');
+    if (!work) { alert('作業内容を選択してください'); return; }
+    /* 本数必須チェック（草刈り以外） */
+    if (work.value !== 'mowing') {
+      var treeCount = document.getElementById('tree-count');
+      var treeErr   = document.getElementById('tree-count-error');
+      if (!treeCount.value || parseInt(treeCount.value) < 1) {
+        treeErr.style.display = 'block';
+        treeCount.focus();
+        return;
+      }
+      treeErr.style.display = 'none';
+    }
+    /* ゴミの回収必須チェック */
+    if (!document.querySelector('input[name="trash"]:checked')) {
+      alert('ゴミの回収を選択してください'); return;
+    }
+    showStep(2);
+  }
+
+  /* 写真バリデーション：草刈り=1枚、樹木=3枚 */
+  function goStep3() {
+    var work = (document.querySelector('input[name="work"]:checked') || {}).value;
+    var isMowing = (work === 'mowing');
+    var ok = true;
+
+    if (isMowing) {
+      /* 草刈り：全体写真1枚必須 */
+      var f = document.getElementById('file-input-m1');
+      var err = document.getElementById('upload-error-m1');
+      var area = document.getElementById('upload-area-m1');
+      if (!f || !f.files || !f.files[0]) {
+        err.classList.add('show'); area.classList.add('error');
+        area.scrollIntoView({ behavior:'smooth', block:'center' });
+        ok = false;
+      } else {
+        err.classList.remove('show'); area.classList.remove('error');
+      }
+    } else {
+      /* 樹木：3枚すべて必須 */
+      ['t1','t2','t3'].forEach(function(key) {
+        var f    = document.getElementById('file-input-' + key);
+        var err  = document.getElementById('upload-error-' + key);
+        var area = document.getElementById('upload-area-' + key);
+        if (!f || !f.files || !f.files[0]) {
+          err.classList.add('show'); area.classList.add('error');
+          if (ok) area.scrollIntoView({ behavior:'smooth', block:'center' });
+          ok = false;
+        } else {
+          err.classList.remove('show'); area.classList.remove('error');
+        }
+      });
+    }
+    if (!ok) return;
+    /* 解析中オーバーレイ → アニメーション後にStep3表示 */
+    startAnalyzing(function() {
+      calcEstimate();
+      showStep(3);
+    });
+  }
+
+  /* 写真アップロード共通ハンドラ */
+  function handleUpload(key) {
+    var f       = document.getElementById('file-input-' + key);
+    var thumb   = document.getElementById('photo-thumb-' + key);
+    var preview = document.getElementById('upload-preview-' + key);
+    var err     = document.getElementById('upload-error-' + key);
+    var area    = document.getElementById('upload-area-' + key);
+    if (f && f.files && f.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        if (thumb) thumb.src = e.target.result;
+      };
+      reader.readAsDataURL(f.files[0]);
+      if (preview) preview.classList.add('has-file');
+      if (area)    area.classList.add('has-file');    /* アイコン・テキストを隠す */
+      if (err)     err.classList.remove('show');
+      if (area)    area.classList.remove('error');
+    }
+  }
+
+
+  /* AI解析中アニメーション
+     ステップを順に点灯しながら進捗バーを進め、完了後にコールバック実行 */
+  function startAnalyzing(callback) {
+    var overlay  = document.getElementById('analyzing-overlay');
+    var fill     = document.getElementById('progress-fill');
+    var label    = document.getElementById('progress-label');
+    var steps    = [1,2,3,4];
+    var progress = 0;
+    var stepIdx  = 0;
+
+    /* ステップ状態をリセット */
+    steps.forEach(function(i) {
+      var el = document.getElementById('astep-' + i);
+      el.classList.remove('done','active');
+    });
+    fill.style.width = '0%';
+    label.textContent = '0%';
+    overlay.classList.add('active');
+
+    /* 各ステップの進捗割合とディレイ（合計 約2.4秒） */
+    var schedule = [
+      { step:1, target:22,  delay:0    },
+      { step:2, target:50,  delay:520  },
+      { step:3, target:78,  delay:1100 },
+      { step:4, target:100, delay:1800 },
+    ];
+
+    schedule.forEach(function(s) {
+      setTimeout(function() {
+        /* 前のステップをdoneに */
+        if (s.step > 1) {
+          document.getElementById('astep-' + (s.step-1)).classList.remove('active');
+          document.getElementById('astep-' + (s.step-1)).classList.add('done');
+        }
+        /* 現在ステップをactiveに */
+        document.getElementById('astep-' + s.step).classList.add('active');
+        /* 進捗バーを更新 */
+        fill.style.width  = s.target + '%';
+        label.textContent = s.target + '%';
+      }, s.delay);
+    });
+
+    /* 全完了後にオーバーレイを閉じてコールバック */
+    setTimeout(function() {
+      document.getElementById('astep-4').classList.remove('active');
+      document.getElementById('astep-4').classList.add('done');
+      setTimeout(function() {
+        overlay.classList.remove('active');
+        callback();
+      }, 350);
+    }, 2400);
+  }
+
+  /* 撮り直すボタン：プレビューをリセットしてアップロードエリアを再表示 */
+  function retakePhoto(key) {
+    var f       = document.getElementById('file-input-' + key);
+    var thumb   = document.getElementById('photo-thumb-' + key);
+    var preview = document.getElementById('upload-preview-' + key);
+    var area    = document.getElementById('upload-area-' + key);
+    if (f)       { f.value = ''; }
+    if (thumb)   { thumb.src = ''; }
+    if (preview) preview.classList.remove('has-file');
+    if (area)    { area.classList.remove('has-file'); area.classList.remove('error'); }
+  }
+
+  /* 作業種別切り替え：③写真ガイド・④剪定希望も連動して出し分け */
+  document.querySelectorAll('input[name="work"]').forEach(function(radio) {
+    radio.addEventListener('change', function() {
+      var v = this.value;
+      var isMowing  = (v === 'mowing');
+      var isPruning = (v === 'pruning');
+
+      /* 既存：樹木用・草刈り用質問 */
+      document.getElementById('q-trees').style.display  = !isMowing ? 'block' : 'none';
+      document.getElementById('q-mowing').style.display =  isMowing ? 'block' : 'none';
+
+      /* ③ 写真アップロードセクションの出し分け */
+      var secMowing = document.getElementById('upload-section-mowing');
+      var secTrees  = document.getElementById('upload-section-trees');
+      if (secMowing) secMowing.style.display = isMowing  ? 'block' : 'none';
+      if (secTrees)  secTrees.style.display  = !isMowing ? 'block' : 'none';
+
+      /* ④ 剪定の希望内容：剪定選択時のみ表示 */
+      var pruningLevel = document.getElementById('q-pruning-level');
+      if (pruningLevel) pruningLevel.style.display = isPruning ? 'block' : 'none';
+
+      /* 次へボタンの有効/無効を更新 */
+      checkStep1Complete();
+    });
+  });
+
+  /* ── 必須項目チェック：全部揃ったら次へボタンを有効化 ──
+     必須項目：
+       - 作業内容（常時）
+       - 木の高さ（草刈り以外）
+       - 本数（草刈り以外）
+       - 草刈りエリア面積（草刈り時）
+       - ゴミの回収（常時）
+  ────────────────────────────────────────────── */
+  function checkStep1Complete() {
+    var work  = document.querySelector('input[name="work"]:checked');
+    var trash = document.querySelector('input[name="trash"]:checked');
+    var btn   = document.getElementById('btn-next-step2');
+    if (!btn) return;
+
+    var ok = false;
+    if (work && trash) {
+      if (work.value === 'mowing') {
+        /* 草刈り：面積・地面の種類必須 */
+        var area      = document.querySelector('input[name="area"]:checked');
+        var groundType = document.querySelector('input[name="ground-type"]:checked');
+        ok = !!(area && groundType);
+      } else {
+        /* 樹木系：高さ＋本数必須 */
+        var height = document.querySelector('input[name="height"]:checked');
+        var count  = document.getElementById('tree-count');
+        ok = !!(height && count && count.value && parseInt(count.value) >= 1);
+      }
+    }
+
+    btn.disabled = !ok;
+    btn.style.opacity = ok ? '1' : '0.4';
+    btn.style.cursor  = ok ? 'pointer' : 'not-allowed';
+  }
+
+  /* 各ラジオ・入力が変化するたびにチェック */
+  ['work','height','area','trash','ground-type','hand-work'].forEach(function(name) {
+    document.querySelectorAll('input[name="' + name + '"]').forEach(function(el) {
+      el.addEventListener('change', checkStep1Complete);
+    });
+  });
+  var treeCountEl = document.getElementById('tree-count');
+  if (treeCountEl) treeCountEl.addEventListener('input', checkStep1Complete);
+
+  /* 変更⑥: 写真プレビュー（サムネイル付き）+ エラークリア */
+  document.getElementById('file-input').addEventListener('change', function() {
+    var preview   = document.getElementById('upload-preview');
+    var nameEl    = document.getElementById('file-name');
+    var thumb     = document.getElementById('photo-thumb');
+    var errorEl   = document.getElementById('upload-error');
+    var uploadArea = document.getElementById('upload-area');
+    if (this.files && this.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        if (thumb) { thumb.src = e.target.result; thumb.classList.add('show'); }
+      };
+      reader.readAsDataURL(this.files[0]);
+      nameEl.textContent = this.files[0].name;
+      preview.classList.add('has-file');
+      uploadArea.classList.add('has-file');
+      errorEl.classList.remove('show');
+      uploadArea.classList.remove('error');
+    }
+  });
+
+  /* =============================================
+     変更⑤: 概算計算ロジック
+     　単一金額（中央値）を算出 → 税抜小計・消費税・税込合計を内訳表示
+  ============================================= */
+  function calcEstimate() {
+    var work   = (document.querySelector('input[name="work"]:checked')   || {}).value;
+    var height = (document.querySelector('input[name="height"]:checked') || {}).value;
+    var area   = (document.querySelector('input[name="area"]:checked')   || {}).value;
+    var count  = parseInt(document.getElementById('tree-count').value)   || 1;
+    var grassH = (document.querySelector('input[name="grass-h"]:checked')|| {}).value;
+    var trash  = (document.querySelector('input[name="trash"]:checked')  || {}).value;
+
+    var workBase = 0, disposalBase = 0;
+
+    if (work === 'pruning') {
+      var mid = height === 'high' ? 15000 : height === 'mid' ? 9000 : 5500;
+      workBase     = mid * count;
+      disposalBase = Math.ceil(count * 0.8) * 6000;
+    } else if (work === 'cutting') {
+      var mid = height === 'high' ? 32000 : 15000;
+      workBase     = mid * count;
+      disposalBase = Math.ceil(count * 1.5) * 6500;
+    } else if (work === 'roots') {
+      var mid = height === 'high' ? 36000 : 19000;
+      workBase     = mid * count;
+      disposalBase = Math.ceil(count * 0.8) * 6500;
+    } else if (work === 'mowing') {
+      /* 面積区分（費用表準拠）
+         xs: 〜100㎡ → 基本料金18,000円
+         s : 100〜300㎡ → 基本+300円/㎡（中央200㎡想定）
+         m : 300〜500㎡ → 基本+220円/㎡（中央400㎡想定）
+         l : 500㎡以上 → 基本+140円/㎡（中央700㎡想定）
+      */
+      var areaBase = area === 'l' ? 18000 + 140 * 700
+                   : area === 'm' ? 18000 + 220 * 400
+                   : area === 's' ? 18000 + 300 * 200
+                   : 18000; /* xs or unknown */
+
+      /* 草の高さ係数 */
+      var heightMult = (grassH === 'high') ? 1.3 : (grassH === 'mid') ? 1.0 : 0.9;
+
+      /* 地面の種類係数 */
+      var groundType = (document.querySelector('input[name="ground-type"]:checked') || {}).value;
+      var groundMult = (groundType === 'gravel') ? 1.3
+                     : (groundType === 'mixed')  ? 1.15
+                     : 1.0; /* soil / unknown */
+
+      /* 手作業（草むしり）加算 */
+      var handWork = (document.querySelector('input[name="hand-work"]:checked') || {}).value;
+      var handAdd  = (handWork === 'full')    ? areaBase * 0.5
+                   : (handWork === 'partial') ? areaBase * 0.2
+                   : 0;
+
+      workBase     = Math.round(areaBase * heightMult * groundMult / 1000) * 1000 + Math.round(handAdd / 1000) * 1000;
+      disposalBase = 9000;
+    }
+
+    if (trash === 'no')      disposalBase = 0;
+    if (trash === 'unknown') disposalBase = Math.round(disposalBase * 0.6);
+
+    /* 変更⑤: 税抜小計→消費税→税込合計 */
+    var subtotal = round5k(workBase + disposalBase);
+    var tax      = Math.round(subtotal * 0.1 / 1000) * 1000;
+    var total    = subtotal + tax;
+
+    /* 変更⑤: 単一金額を result-price に表示 */
+    document.getElementById('result-price').textContent   = total.toLocaleString() + '円';
+    document.getElementById('bd-work').textContent        = workBase.toLocaleString() + '円';
+    document.getElementById('bd-disposal').textContent    =
+      disposalBase > 0 ? disposalBase.toLocaleString() + '円' : '不要または未選択';
+    document.getElementById('bd-subtotal').textContent    = subtotal.toLocaleString() + '円';
+    document.getElementById('bd-tax').textContent         = tax.toLocaleString() + '円';
+    document.getElementById('bd-total').textContent       = total.toLocaleString() + '円';
+  }
+
+  function round5k(n) { return Math.round(n / 5000) * 5000 || 5000; }
+
+  /* =============================================
+     現地調査フォーム送信
+  ============================================= */
+  function submitContact() {
+    var name   = document.getElementById('contact-name').value.trim();
+    var tel    = document.getElementById('contact-tel').value.trim();
+    var email  = document.getElementById('contact-email').value.trim();
+    var postal = document.getElementById('contact-postal').value.trim();
+    var ok = true;
+
+    /* お名前 */
+    if (!name) {
+      document.getElementById('name-error').classList.add('show'); ok = false;
+    } else { document.getElementById('name-error').classList.remove('show'); }
+
+    /* 電話番号 */
+    if (!tel) {
+      document.getElementById('tel-error').classList.add('show'); ok = false;
+    } else { document.getElementById('tel-error').classList.remove('show'); }
+
+    /* メールアドレス */
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      document.getElementById('email-error').classList.add('show'); ok = false;
+    } else { document.getElementById('email-error').classList.remove('show'); }
+
+    /* 郵便番号（7桁） */
+    var normalized = postal.replace(/-/g, '');
+    if (!normalized || normalized.length !== 7) {
+      document.getElementById('postal-error').classList.add('show'); ok = false;
+    } else { document.getElementById('postal-error').classList.remove('show'); }
+
+    if (!ok) return;
+
+    /* ── API送信（Webhook URL を下記に設定してください） ──
+       WEBHOOK_URL に管理画面のAPIエンドポイントを入れるだけで自動CV連携できます */
+    var WEBHOOK_URL = ''; /* ← ここにAPIのURLを入力 */
+
+    /* 送信データ（見積もり情報も一緒に送る） */
+    var payload = {
+      name:          name,
+      tel:           tel,
+      email:         email,
+      postal_code:   postal,
+      work_type:     (document.querySelector('input[name="work"]:checked')    || {}).value || '',
+      height:        (document.querySelector('input[name="height"]:checked')  || {}).value || '',
+      tree_count:    document.getElementById('tree-count') ? document.getElementById('tree-count').value : '',
+      area:          (document.querySelector('input[name="area"]:checked')         || {}).value || '',
+      ground_type:   (document.querySelector('input[name="ground-type"]:checked')  || {}).value || '',
+      hand_work:     (document.querySelector('input[name="hand-work"]:checked')    || {}).value || '',
+      trash:         (document.querySelector('input[name="trash"]:checked')        || {}).value || '',
+      estimate_total: document.getElementById('bd-total') ? document.getElementById('bd-total').textContent : '',
+      submitted_at:  new Date().toISOString()
+    };
+
+    if (WEBHOOK_URL) {
+      fetch(WEBHOOK_URL, {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify(payload)
+      }).catch(function(e) { console.warn('API送信エラー:', e); });
+      /* エラーでもサンクス画面は表示する */
+    }
+
+    /* サンクス画面を表示 */
+    document.getElementById('contact-form-wrap').style.display = 'none';
+    document.getElementById('contact-thanks').style.display    = 'block';
+  }
+
+  /* =============================================
+     FAQ アコーディオン
+  ============================================= */
+  function toggleFaq(el) {
+    el.closest('.faq-item').classList.toggle('open');
+  }
+
+  /* =============================================
+     固定フッターCTA: 常時表示
+  ============================================= */
+  var stickyCta = document.getElementById('sticky-cta');
+  if (stickyCta) {
+    stickyCta.style.display = 'block';
+  }
+
+  /* =============================================
+     変更⑦: 写真なし内部ボタンスタイル（動的適用）
+  ============================================= */
+  document.querySelectorAll('.no-photo-inner-btn').forEach(function(btn) {
+    btn.style.cssText = [
+      'display:block','width:100%','padding:13px 16px',
+      'background:var(--white)','border:1.5px solid var(--border)',
+      'border-radius:8px','font-family:var(--font-sans)','font-size:14px',
+      'font-weight:600','color:var(--green-dark)','text-align:left',
+      'cursor:pointer'
+    ].join(';');
+    btn.addEventListener('mouseover', function() {
+      this.style.background = 'var(--green-mist)';
+      this.style.borderColor = 'var(--green-mid)';
+    });
+    btn.addEventListener('mouseout', function() {
+      this.style.background = 'var(--white)';
+      this.style.borderColor = 'var(--border)';
+    });
+  });
+</script>
+
+
+  <!-- AI解析中オーバーレイ -->
+  <div id="analyzing-overlay">
+    <div class="analyzing-icon">
+      <!-- 葉アイコン -->
+      <svg viewBox="0 0 24 24">
+        <path d="M17 8C8 10 5.9 16.17 3.82 19.41L5.71 21 7 19c.78-.22 2-.44 2.5-1C11.26 16.18 11.66 12 17 8z"/>
+        <path d="M7.5 10.5c1.5-2 4-2.5 6.5-2.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <p class="analyzing-title">AI が写真を解析中…</p>
+    <p class="analyzing-sub">入力内容・写真をもとに<br>概算金額を算出しています</p>
+
+    <div class="progress-bar-wrap">
+      <div class="progress-bar-fill" id="progress-fill"></div>
+    </div>
+    <p class="progress-label" id="progress-label">0%</p>
+
+    <div class="analyzing-steps">
+      <div class="analyzing-step-item" id="astep-1">
+        <div class="analyzing-step-dot"></div>
+        写真の内容を確認
+      </div>
+      <div class="analyzing-step-item" id="astep-2">
+        <div class="analyzing-step-dot"></div>
+        作業範囲・難易度を判定
+      </div>
+      <div class="analyzing-step-item" id="astep-3">
+        <div class="analyzing-step-dot"></div>
+        地域相場データと照合
+      </div>
+      <div class="analyzing-step-item" id="astep-4">
+        <div class="analyzing-step-dot"></div>
+        概算金額を算出
+      </div>
+    </div>
+  </div>
+</body>
+</html>
