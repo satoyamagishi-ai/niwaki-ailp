@@ -59,6 +59,11 @@ export default async function handler(req, res) {
 
     const data = await response.json().catch(() => ({}));
 
+    /* エラー内容をログ出力 */
+    console.log('送信データ:', JSON.stringify(payload));
+    console.log('APIレスポンスステータス:', response.status);
+    console.log('APIレスポンスボディ:', JSON.stringify(data));
+
     if (!response.ok) {
       return res.status(response.status).json({
         error: data.error_message || 'APIエラーが発生しました',
