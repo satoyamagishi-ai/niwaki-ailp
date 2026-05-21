@@ -3,15 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-FVTH56W');</script>
-  <!-- End Google Tag Manager -->
-  
   <title>庭木の手入れ、料金が心配なあなたへ｜無料で概算見積もり</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
 
@@ -1571,10 +1562,7 @@
   </style>
 </head>
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-FVTH56W"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+
 
 <!-- =========================================
   #site-header - サイトヘッダー
@@ -1688,7 +1676,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
        下記の 'hero-bg.jpg' の部分を画像のURLに差し替えてください
        例）background-image: url('https://example.com/image.jpg');
        ============================================================ */
-    background-image: url('https://s3-ap-northeast-1.amazonaws.com/iacc-cms-prod/uploads/image/image/41744/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2026-04-30_14.00.14.png'); /* ← ここに画像URLを記載 */
+    background-image: url('hero-bg.jpg'); /* ← ここに画像URLを記載 */
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
@@ -1836,7 +1824,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
              下記の 'logo.png' の部分をロゴ画像のURLに差し替えてください
              例）<img src="https://example.com/logo.png" ...>
              ============================================================ -->
-        <img src="https://s3-ap-northeast-1.amazonaws.com/iacc-cms-prod/uploads/image/image/41740/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2026-04-30_13.40.21.png" alt="リショップナビ" style="height:38px;width:auto;display:block;"> 
+        <img src="logo.png" alt="リショップナビ" style="height:38px;width:auto;display:block;"> <!-- ← ここにロゴ画像URLを記載 -->
       </div>
     </a>
     <div class="header-tel-block">
@@ -1943,8 +1931,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
          見出し直下に写真を挿入できます（例：悩んでいる人の姿）
          下記 src の 'YOUR_IMAGE_URL_HERE' を画像URLに差し替えてください
          ============================================================ -->
-     <img src="https://s3-ap-northeast-1.amazonaws.com/iacc-cms-prod/uploads/image/image/41736/Gemini_Generated_Image_gd3f27gd3f27gd3f.png" alt="庭木の手入れに悩む様子" style="width:100%;border-radius:10px;margin-bottom:20px;display:block;"> 
-   
+    <!-- <img src="YOUR_IMAGE_URL_HERE" alt="庭木の手入れに悩む様子" style="width:100%;border-radius:10px;margin-bottom:20px;display:block;"> -->
+    <!-- ↑ 画像を表示する場合はこの行の <!-- と --> を削除してください -->
     <ul class="pain-list">
       <li class="pain-item">
         <!-- 変更③: 顔文字→SVGアイコン（? 円形）-->
@@ -2043,8 +2031,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
            見出し直下に写真を挿入できます（例：スマホでアンケートを回答している主婦の姿）
            下記 src の 'YOUR_IMAGE_URL_HERE' を画像URLに差し替えてください
            ============================================================ -->
-       <img src="https://s3-ap-northeast-1.amazonaws.com/iacc-cms-prod/uploads/image/image/41737/Gemini_Generated_Image_1xkw881xkw881xkw.png" alt="スマホで見積もりを操作する様子" style="width:100%;border-radius:10px;margin-bottom:24px;display:block;"> 
-
+      <!-- <img src="YOUR_IMAGE_URL_HERE" alt="スマホで見積もりを操作する様子" style="width:100%;border-radius:10px;margin-bottom:24px;display:block;"> -->
+      <!-- ↑ 画像を表示する場合はこの行の <!-- と --> を削除してください -->
     </div>
 
     <!-- 3ステップ：スマホ縦並び -->
@@ -2395,12 +2383,114 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <!-- ===== 見積もりフロー ===== -->
       <div id="flow-estimate">
 
-        <!-- Step 1: 作業選択 -->
+        <!-- Step 1: 個人情報入力（新規） -->
         <div class="modal-step active" id="step1">
           <div class="step-indicator">
-            <div class="step-dot active" id="dot1"></div>
-            <div class="step-dot" id="dot2"></div>
-            <div class="step-dot" id="dot3"></div>
+            <div class="step-dot active"></div>
+            <div class="step-dot"></div>
+            <div class="step-dot"></div>
+            <div class="step-dot"></div>
+          </div>
+          <p style="font-size:13px;color:var(--text-mid);margin-bottom:20px;line-height:1.7;">まずご連絡先をご入力ください。<br>入力後に詳細をヒアリングします。</p>
+          <div class="form-group">
+            <label class="form-label">お名前 <span class="required">必須</span></label>
+            <input type="text" class="number-input" id="s1-name" placeholder="例：山田 太郎" autocomplete="name">
+            <p class="upload-error" id="s1-name-error" style="margin-top:4px;">お名前を入力してください</p>
+          </div>
+          <div class="form-group">
+            <label class="form-label">ふりがな <span class="required">必須</span></label>
+            <input type="text" class="number-input" id="s1-furigana" placeholder="例：やまだ たろう">
+            <p class="upload-error" id="s1-furigana-error" style="margin-top:4px;">ふりがなを入力してください</p>
+          </div>
+          <div class="form-group">
+            <label class="form-label">郵便番号 <span class="required">必須</span></label>
+            <input type="text" class="number-input" id="s1-postal" placeholder="例：1500001" maxlength="8" inputmode="numeric" oninput="this.value=this.value.replace(/[^0-9\-]/g,'')">
+            <p style="font-size:11px;color:var(--text-soft);margin-top:4px;">ハイフンあり・なし どちらでも</p>
+            <p class="upload-error" id="s1-postal-error" style="margin-top:4px;">郵便番号を入力してください</p>
+          </div>
+          <div class="form-group">
+            <label class="form-label">都道府県 <span class="required">必須</span></label>
+            <select class="number-input" id="s1-prefecture" style="-webkit-appearance:none;background:#fff;">
+              <option value="">選択してください</option>
+              <option value="1">北海道</option>
+              <option value="2">青森県</option>
+              <option value="3">岩手県</option>
+              <option value="4">宮城県</option>
+              <option value="5">秋田県</option>
+              <option value="6">山形県</option>
+              <option value="7">福島県</option>
+              <option value="8">茨城県</option>
+              <option value="9">栃木県</option>
+              <option value="10">群馬県</option>
+              <option value="11">埼玉県</option>
+              <option value="12">千葉県</option>
+              <option value="13">東京都</option>
+              <option value="14">神奈川県</option>
+              <option value="15">新潟県</option>
+              <option value="16">富山県</option>
+              <option value="17">石川県</option>
+              <option value="18">福井県</option>
+              <option value="19">山梨県</option>
+              <option value="20">長野県</option>
+              <option value="21">岐阜県</option>
+              <option value="22">静岡県</option>
+              <option value="23">愛知県</option>
+              <option value="24">三重県</option>
+              <option value="25">滋賀県</option>
+              <option value="26">京都府</option>
+              <option value="27">大阪府</option>
+              <option value="28">兵庫県</option>
+              <option value="29">奈良県</option>
+              <option value="30">和歌山県</option>
+              <option value="31">鳥取県</option>
+              <option value="32">島根県</option>
+              <option value="33">岡山県</option>
+              <option value="34">広島県</option>
+              <option value="35">山口県</option>
+              <option value="36">徳島県</option>
+              <option value="37">香川県</option>
+              <option value="38">愛媛県</option>
+              <option value="39">高知県</option>
+              <option value="40">福岡県</option>
+              <option value="41">佐賀県</option>
+              <option value="42">長崎県</option>
+              <option value="43">熊本県</option>
+              <option value="44">大分県</option>
+              <option value="45">宮崎県</option>
+              <option value="46">鹿児島県</option>
+              <option value="47">沖縄県</option>
+            </select>
+            <p class="upload-error" id="s1-prefecture-error" style="margin-top:4px;">都道府県を選択してください</p>
+          </div>
+          <div class="form-group">
+            <label class="form-label">住所 <span class="required">必須</span></label>
+            <input type="text" class="number-input" id="s1-address" placeholder="例：港区新橋1-1-1" autocomplete="street-address">
+            <p style="font-size:11px;color:var(--text-soft);margin-top:4px;">市区町村・番地までご入力ください</p>
+            <p class="upload-error" id="s1-address-error" style="margin-top:4px;">住所を入力してください</p>
+          </div>
+          <div class="form-group">
+            <label class="form-label">電話番号 <span class="required">必須</span></label>
+            <input type="tel" class="number-input" id="s1-tel" placeholder="例：09000000000" inputmode="tel" autocomplete="tel">
+            <p class="upload-error" id="s1-tel-error" style="margin-top:4px;">電話番号を入力してください</p>
+          </div>
+          <div class="form-group">
+            <label class="form-label">メールアドレス <span class="required">必須</span></label>
+            <input type="text" class="number-input" id="s1-email" placeholder="例：sample@example.com" inputmode="email" autocomplete="email">
+            <p class="upload-error" id="s1-email-error" style="margin-top:4px;">正しいメールアドレスを入力してください</p>
+          </div>
+          <p style="font-size:11px;color:var(--text-soft);margin-bottom:16px;line-height:1.7;">
+            <a href="#" onclick="openTermsModal(event)" style="color:var(--green-dark);text-decoration:underline;">利用規約・プライバシーポリシー・特約</a>にご同意の上お進みください
+          </p>
+          <button class="btn-primary" onclick="goStep2()">次へ →</button>
+        </div>
+
+        <!-- Step 2: 作業内容ヒアリング -->
+        <div class="modal-step" id="step2">
+          <div class="step-indicator">
+            <div class="step-dot done"></div>
+            <div class="step-dot active"></div>
+            <div class="step-dot"></div>
+            <div class="step-dot"></div>
           </div>
           <div class="form-group">
             <label class="form-label">作業内容を選んでください <span class="required">必須</span></label>
@@ -2409,6 +2499,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <label class="radio-option"><input type="radio" name="work" value="cutting"> 伐採</label>
               <label class="radio-option"><input type="radio" name="work" value="roots"> 抜根</label>
               <label class="radio-option"><input type="radio" name="work" value="mowing"> 草刈り</label>
+              <label class="radio-option"><input type="radio" name="work" value="weeding"> 除草</label>
             </div>
           </div>
 
@@ -2498,19 +2589,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
 
           <!-- 必須項目が全部揃うまで無効 -->
-          <button class="btn-primary" id="btn-next-step2" onclick="goStep2()" disabled style="opacity:0.4;cursor:not-allowed;">次へ →</button>
+          <div style="display:flex;gap:10px;margin-top:4px;">
+            <button class="btn-secondary" onclick="goStep1()" style="flex:1;">← 戻る</button>
+            <button class="btn-primary" id="btn-next-step3" onclick="goStep3()" disabled style="opacity:0.4;cursor:not-allowed;flex:2;">次へ →</button>
+          </div>
         </div>
 
-        <!-- =============================================
-             Step 2: 写真アップロード
-             【変更⑥】必須バリデーション・カメラ起動・サムネイル
-             【変更⑦】写真なし導線パネル
-        ============================================= -->
-        <div class="modal-step" id="step2">
+        <!-- Step 3: 写真アップロード -->
+        <div class="modal-step" id="step3">
           <div class="step-indicator">
-            <div class="step-dot done" id="dot1b"></div>
-            <div class="step-dot active" id="dot2b"></div>
-            <div class="step-dot" id="dot3b"></div>
+            <div class="step-dot done"></div>
+            <div class="step-dot done"></div>
+            <div class="step-dot active"></div>
+            <div class="step-dot"></div>
           </div>
           <!-- 写真アップロード：草刈り=1枚、樹木=3枚必須に出し分け -->
 
@@ -2540,62 +2631,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
           <!-- ▼ 樹木用（3枚必須：根元 / 全体 / 葉枝） -->
           <div id="upload-section-trees" style="display:none;">
-            <!-- 1枚目：木の根元 -->
+            <!-- 樹木：1枚・任意 -->
             <div class="form-group">
-              <label class="form-label">① 木の根元 <span class="required">必須</span></label>
-              <p style="font-size:12px;color:var(--text-soft);margin-bottom:8px;">幹の太さの確認に使います（正確なお見積りのため）</p>
+              <label class="form-label">庭木の写真 <span style="display:inline-block;background:#667d72;color:#fff;font-size:10px;font-weight:700;padding:2px 7px;border-radius:3px;margin-left:6px;vertical-align:middle;">任意</span></label>
+              <p style="font-size:12px;color:var(--text-soft);margin-bottom:8px;">庭木全体が写った写真があると精度が上がります（なくてもOK）</p>
               <div class="upload-area" id="upload-area-t1">
                 <input type="file" id="file-input-t1" accept="image/*" capture="environment" onchange="handleUpload('t1')">
                 <div class="upload-inner"><div class="upload-icon-wrap"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
                 <p class="upload-text">タップして写真を選ぶ / 撮影する</p></div>
               </div>
-              <p class="upload-error" id="upload-error-t1">写真をアップロードしてください</p>
               <div class="upload-preview" id="upload-preview-t1">
               <div class="preview-card">
                 <img id="photo-thumb-t1" src="" alt="アップロード済み写真">
                 <button class="preview-retake" onclick="retakePhoto('t1')">✕ 撮り直す</button>
-              </div>
-              <span class="preview-badge">
-                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                アップロード完了
-              </span>
-            </div>
-            </div>
-            <!-- 2枚目：全体写真 -->
-            <div class="form-group">
-              <label class="form-label">② 全体写真 <span class="required">必須</span></label>
-              <p style="font-size:12px;color:var(--text-soft);margin-bottom:8px;">木の高さ・形の確認に使います</p>
-              <div class="upload-area" id="upload-area-t2">
-                <input type="file" id="file-input-t2" accept="image/*" capture="environment" onchange="handleUpload('t2')">
-                <div class="upload-inner"><div class="upload-icon-wrap"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
-                <p class="upload-text">タップして写真を選ぶ / 撮影する</p></div>
-              </div>
-              <p class="upload-error" id="upload-error-t2">写真をアップロードしてください</p>
-              <div class="upload-preview" id="upload-preview-t2">
-              <div class="preview-card">
-                <img id="photo-thumb-t2" src="" alt="アップロード済み写真">
-                <button class="preview-retake" onclick="retakePhoto('t2')">✕ 撮り直す</button>
-              </div>
-              <span class="preview-badge">
-                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                アップロード完了
-              </span>
-            </div>
-            </div>
-            <!-- 3枚目：葉・枝の状態 -->
-            <div class="form-group">
-              <label class="form-label">③ 葉・枝の状態 <span class="required">必須</span></label>
-              <p style="font-size:12px;color:var(--text-soft);margin-bottom:8px;">作業量の把握に使います</p>
-              <div class="upload-area" id="upload-area-t3">
-                <input type="file" id="file-input-t3" accept="image/*" capture="environment" onchange="handleUpload('t3')">
-                <div class="upload-inner"><div class="upload-icon-wrap"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
-                <p class="upload-text">タップして写真を選ぶ / 撮影する</p></div>
-              </div>
-              <p class="upload-error" id="upload-error-t3">写真をアップロードしてください</p>
-              <div class="upload-preview" id="upload-preview-t3">
-              <div class="preview-card">
-                <img id="photo-thumb-t3" src="" alt="アップロード済み写真">
-                <button class="preview-retake" onclick="retakePhoto('t3')">✕ 撮り直す</button>
               </div>
               <span class="preview-badge">
                 <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
@@ -2616,9 +2664,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
           <div style="display:flex;gap:10px;margin-top:4px;">
-            <button class="btn-secondary" onclick="goStep1()" style="flex:1;">← 戻る</button>
-            <!-- 変更⑥: バリデーション付き次へ -->
-            <button class="btn-primary" onclick="goStep3()" style="flex:2;">概算を見る</button>
+            <button class="btn-secondary" onclick="goStep2back()" style="flex:1;">← 戻る</button>
+            <button class="btn-primary" onclick="goStep4()" style="flex:2;">見積もりを依頼する</button>
           </div>
           <!-- 写真なし導線：理由選択 → 現地調査URLへ -->
           <div style="margin-top:16px;text-align:center;">
@@ -2647,55 +2694,75 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
         </div>
 
-        <!-- =============================================
-             Step 3: 結果表示
-             【変更⑤】単一金額 + 内訳（小計・消費税・合計）
-        ============================================= -->
-        <div class="modal-step" id="step3">
+        <!-- Step 4: 結果表示（分岐） -->
+        <div class="modal-step" id="step4">
           <div class="step-indicator">
+            <div class="step-dot done"></div>
             <div class="step-dot done"></div>
             <div class="step-dot done"></div>
             <div class="step-dot active"></div>
           </div>
-          <div class="result-box">
-            <p class="result-label">概算見積もり（参考金額）</p>
-            <!-- 変更⑤: 単一金額を大きく -->
-            <p class="result-price" id="result-price">35,000円</p>
-            <p class="result-price-note">※ 概算金額（税込）</p>
+
+          <!-- ▼ 剪定・伐採・抜根：概算表示 -->
+          <div id="result-trees">
+            <div class="result-box">
+              <p class="result-label">概算見積もり（参考金額）</p>
+              <p class="result-price" id="result-price">35,000円</p>
+              <p class="result-price-note">※ 概算金額（税込）</p>
+            </div>
+            <div class="result-breakdown">
+              <p class="result-breakdown-title">内 訳</p>
+              <div class="breakdown-row"><span>作業費（目安）</span><span id="bd-work">—</span></div>
+              <div class="breakdown-row"><span>処分・運搬費（目安）</span><span id="bd-disposal">—</span></div>
+              <div class="breakdown-row"><span>小計（税抜）</span><span id="bd-subtotal">—</span></div>
+              <div class="breakdown-row"><span>消費税（10%）</span><span id="bd-tax">—</span></div>
+              <div class="breakdown-row total"><span><strong>合計（税込・概算）</strong></span><span id="bd-total">—</span></div>
+            </div>
+            <div class="result-caveat">※ この金額はあくまで概算です。現地の状況・作業条件により変動します。</div>
+            <div class="result-next">
+              <p class="result-next-title">この金額でよろしければ、現地調査を依頼してください</p>
+              <p class="result-next-desc">プロが現場を確認し、正式な金額をお伝えします。<br>現地調査後にお断りすることも可能です。</p>
+              <button class="btn-gold" onclick="submitAndCV()">この金額で現地調査を依頼する（無料）</button>
+              <p class="btn-note" style="margin-top:8px;">現地調査後にお断りすることも可能です</p>
+            </div>
+            <button class="btn-secondary" onclick="closeModal()" style="margin-top:4px;">概算だけ確認してこのまま閉じる</button>
           </div>
-          <!-- 変更⑤: 内訳テーブル（小計・消費税・合計） -->
-          <div class="result-breakdown">
-            <p class="result-breakdown-title">内 訳</p>
-            <div class="breakdown-row">
-              <span>作業費（目安）</span><span id="bd-work">—</span>
+
+          <!-- ▼ 草刈り・除草：後日送付 -->
+          <div id="result-mowing" style="display:none;">
+            <div style="text-align:center;padding:16px 0 8px;">
+              <div style="width:64px;height:64px;border-radius:50%;background:var(--green-pale);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--green-dark)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <h3 style="font-family:Arial,sans-serif;font-size:18px;font-weight:700;color:var(--green-dark);margin-bottom:10px;">ご依頼を承りました</h3>
+              <p style="font-size:14px;color:var(--text-mid);line-height:1.8;margin-bottom:20px;">
+                草刈り・除草の概算見積もりは、<br>
+                現地状況の確認が必要なため、<br>
+                <strong>後日メールにてお送りします。</strong><br><br>
+                入力いただいたメールアドレスに<br>
+                担当者よりご連絡いたします。<br>
+                しばらくお待ちください。
+              </p>
             </div>
-            <div class="breakdown-row">
-              <span>処分・運搬費（目安）</span><span id="bd-disposal">—</span>
-            </div>
-            <div class="breakdown-row">
-              <span>小計（税抜）</span><span id="bd-subtotal">—</span>
-            </div>
-            <div class="breakdown-row">
-              <span>消費税（10%）</span><span id="bd-tax">—</span>
-            </div>
-            <!-- 変更⑤: 合計行を強調 -->
-            <div class="breakdown-row total">
-              <span><strong>合計（税込・概算）</strong></span>
-              <span id="bd-total">—</span>
+            <button class="btn-primary" onclick="submitAndCV()">送信して完了する</button>
+          </div>
+
+          <!-- ▼ 送信完了サンクス -->
+          <div id="result-thanks" style="display:none;">
+            <div class="thanks-wrap">
+              <div class="thanks-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <h3 class="thanks-title">ご利用いただきありがとうございます！</h3>
+              <p class="thanks-desc">
+                現地調査ご依頼を承りました。<br>
+                庭木担当者より3日以内にご連絡いたします。<br><br>
+                しつこい営業はいたしませんので、<br>
+                安心してお待ちください。
+              </p>
             </div>
           </div>
-          <div class="result-caveat">
-            ※ この金額はあくまで概算です。現地の状況・作業条件により変動します。
-          </div>
-          <div class="result-next">
-            <p class="result-next-title">より正確な見積もりを希望される方へ</p>
-            <p class="result-next-desc">現地調査では、正式な金額をお伝えします。<br>追加費用の有無も事前に確認できます。</p>
-            <a href="https://rehome-navi.com/registration/reform/og/input?page_transition_source=rinoco_niwaki_ai_lp" target="_blank" rel="noopener noreferrer" class="btn-gold" style="display:block;text-align:center;text-decoration:none;">プロに現地確認してもらう（無料）</a>
-            <p class="btn-note" style="margin-top:8px;">現地調査後にお断りすることも可能です</p>
-            <p style="font-size:11px;color:var(--text-soft);text-align:center;margin-top:10px;line-height:1.7;">
-              <a href="#" onclick="openTermsModal(event)" style="color:var(--green-dark);text-decoration:underline;text-underline-offset:2px;">利用規約・プライバシーポリシー・特約</a>にご同意の上ご利用ください
-            </p>
-          </div>
+
+        </div>
+      </div>
 
 <!-- ====================================
      利用規約モーダル
@@ -2854,25 +2921,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 </div>
-          <button class="btn-secondary" onclick="closeModal()" style="margin-top:4px;">概算だけ確認してこのまま閉じる</button>
-        </div>
-      </div>
 
     </div>
   </div>
 </div>
 
-<!-- ====================================
-     JavaScript
-     【変更⑤】単一金額（中央値）＋小計/消費税/合計の内訳計算
-     【変更⑥】写真必須バリデーション・サムネイルプレビュー
-     【変更⑦】写真なし導線（外部URLへ遷移）
-==================================== -->
+
+<!-- JavaScript -->
 <script>
-  /* =============================================
-     変更⑦: 写真なし導線の遷移先URL
-  ============================================= */
   var NO_PHOTO_URL = 'https://rehome-navi.com/registration/reform/og/input?page_transition_source=rinoco_niwaki_ai_lp';
+
+  /* =============================================
+     Webhook URL（開発チームから受け取り後ここに設定）
+  ============================================= */
+  var WEBHOOK_URL = ''; /* ← ここにAPIのURLを入力 */
 
   /* =============================================
      モーダル制御
@@ -2893,110 +2955,108 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     if (e.target === document.getElementById('modal-overlay')) closeModal();
   }
 
-  /* 変更⑦: 写真なしモーダル制御 */
-  function openNoPhotoModal() {
-    var el = document.getElementById('no-photo-modal-overlay');
-    if (!el) {
-      /* モーダルが存在しない場合は直接URLへ */
-      window.location.href = NO_PHOTO_URL;
-      return;
-    }
-    el.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeNoPhotoModal() {
-    var el = document.getElementById('no-photo-modal-overlay');
-    if (el) el.classList.remove('active');
-    document.body.style.overflow = '';
-  }
-  function closeNoPhotoModalIfOutside(e) {
-    var el = document.getElementById('no-photo-modal-overlay');
-    if (el && e.target === el) closeNoPhotoModal();
-  }
-  /* 理由ボタン選択 → ボタンをアクティブ表示しCTAを出現させる */
-  function goNoPhotoUrl(btn) {
-    /* 全ボタンを未選択状態に戻す */
-    var panel = document.getElementById('no-photo-panel');
-    if (panel) {
-      panel.querySelectorAll('.no-photo-inner-btn').forEach(function(b) {
-        b.style.background  = '#fff';
-        b.style.color       = 'var(--green-dark)';
-        b.style.borderColor = 'var(--border)';
-        b.style.fontWeight  = '600';
-      });
-      /* 選択ボタンをハイライト（緑背景・白文字） */
-      if (btn) {
-        btn.style.background  = '#22ba4f';
-        btn.style.color       = '#ffffff';
-        btn.style.borderColor = '#22ba4f';
-        btn.style.fontWeight  = '700';
-      }
-    }
-    /* CTAを表示 */
-    var cta = document.getElementById('no-photo-cta');
-    if (cta) cta.style.display = 'block';
-  }
-  /* Step2内パネルトグル */
-  function toggleNoPhotoPanel() {
-    var p = document.getElementById('no-photo-panel');
-    if (!p) return;
-    p.style.display = p.style.display === 'none' ? 'block' : 'none';
-    /* パネルを開いたときCTAは非表示にリセット */
-    if (p.style.display === 'block') {
-      var cta = document.getElementById('no-photo-cta');
-      if (cta) cta.style.display = 'none';
-      p.querySelectorAll('.no-photo-inner-btn').forEach(function(b) {
-        b.style.background  = '#fff';
-        b.style.color       = 'var(--green-dark)';
-        b.style.borderColor = 'var(--border)';
-        b.style.fontWeight  = '600';
-      });
-    }
-  }
-
   /* =============================================
-     見積もりステップ制御
+     ステップ制御（4ステップ）
+     Step1: 個人情報
+     Step2: 作業内容ヒアリング
+     Step3: 写真アップロード
+     Step4: 結果表示（分岐）
   ============================================= */
   function showStep(n) {
-    [1,2,3].forEach(function(i) {
+    [1,2,3,4].forEach(function(i) {
       document.getElementById('step'+i).classList.toggle('active', i === n);
     });
-    /* Step2以外ではパネルを閉じる */
-    if (n !== 2) {
+    if (n !== 3) {
       var p = document.getElementById('no-photo-panel');
       if (p) p.style.display = 'none';
     }
   }
-  function goStep1() { showStep(1); }
+
+  /* Step1: 個人情報バリデーション → Step2へ */
   function goStep2() {
-    var work = document.querySelector('input[name="work"]:checked');
-    if (!work) { alert('作業内容を選択してください'); return; }
-    /* 本数必須チェック（草刈り以外） */
-    if (work.value !== 'mowing') {
-      var treeCount = document.getElementById('tree-count');
-      var treeErr   = document.getElementById('tree-count-error');
-      if (!treeCount.value || parseInt(treeCount.value) < 1) {
-        treeErr.style.display = 'block';
-        treeCount.focus();
-        return;
-      }
-      treeErr.style.display = 'none';
-    }
-    /* ゴミの回収必須チェック */
-    if (!document.querySelector('input[name="trash"]:checked')) {
-      alert('ゴミの回収を選択してください'); return;
-    }
+    var name     = document.getElementById('s1-name').value.trim();
+    var furigana = document.getElementById('s1-furigana').value.trim();
+    var postal   = document.getElementById('s1-postal').value.trim();
+    var pref     = document.getElementById('s1-prefecture').value;
+    var address  = document.getElementById('s1-address').value.trim();
+    var tel      = document.getElementById('s1-tel').value.trim();
+    var email    = document.getElementById('s1-email').value.trim();
+    var ok = true;
+
+    if (!name) {
+      document.getElementById('s1-name-error').style.display = 'block'; ok = false;
+    } else { document.getElementById('s1-name-error').style.display = 'none'; }
+
+    if (!furigana) {
+      document.getElementById('s1-furigana-error').style.display = 'block'; ok = false;
+    } else { document.getElementById('s1-furigana-error').style.display = 'none'; }
+
+    var postalNorm = postal.replace(/-/g,'');
+    if (!postalNorm || postalNorm.length !== 7) {
+      document.getElementById('s1-postal-error').style.display = 'block'; ok = false;
+    } else { document.getElementById('s1-postal-error').style.display = 'none'; }
+
+    if (!pref) {
+      document.getElementById('s1-prefecture-error').style.display = 'block'; ok = false;
+    } else { document.getElementById('s1-prefecture-error').style.display = 'none'; }
+
+    if (!address) {
+      document.getElementById('s1-address-error').style.display = 'block'; ok = false;
+    } else { document.getElementById('s1-address-error').style.display = 'none'; }
+
+    if (!tel) {
+      document.getElementById('s1-tel-error').style.display = 'block'; ok = false;
+    } else { document.getElementById('s1-tel-error').style.display = 'none'; }
+
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      document.getElementById('s1-email-error').style.display = 'block'; ok = false;
+    } else { document.getElementById('s1-email-error').style.display = 'none'; }
+
+    if (!ok) return;
     showStep(2);
   }
 
-  /* 写真バリデーション：草刈り=1枚、樹木=3枚 */
+  /* Step1へ戻る */
+  function goStep1() { showStep(1); }
+
+  /* Step2 → Step3（写真へ） */
   function goStep3() {
+    var work = document.querySelector('input[name="work"]:checked');
+    if (!work) { alert('作業内容を選択してください'); return; }
+
+    var isMowing = (work.value === 'mowing' || work.value === 'weeding');
+    if (!isMowing) {
+      /* 樹木系：高さ＋本数チェック */
+      var treeCount = document.getElementById('tree-count');
+      var treeErr   = document.getElementById('tree-count-error');
+      if (!treeCount.value || parseInt(treeCount.value) < 1) {
+        treeErr.style.display = 'block'; treeCount.focus(); return;
+      }
+      treeErr.style.display = 'none';
+    }
+    if (!document.querySelector('input[name="trash"]:checked')) {
+      alert('ゴミの回収を選択してください'); return;
+    }
+
+    /* 写真アップロードセクションの出し分け */
+    var secMowing = document.getElementById('upload-section-mowing');
+    var secTrees  = document.getElementById('upload-section-trees');
+    if (secMowing) secMowing.style.display = isMowing ? 'block' : 'none';
+    if (secTrees)  secTrees.style.display  = !isMowing ? 'block' : 'none';
+
+    showStep(3);
+  }
+
+  /* Step2へ戻る */
+  function goStep2back() { showStep(2); }
+
+  /* Step3 → Step4（写真バリデーション → 解析 → 結果） */
+  function goStep4() {
     var work = (document.querySelector('input[name="work"]:checked') || {}).value;
-    var isMowing = (work === 'mowing');
+    var isMowing = (work === 'mowing' || work === 'weeding');
     var ok = true;
 
     if (isMowing) {
-      /* 草刈り：全体写真1枚必須 */
       var f = document.getElementById('file-input-m1');
       var err = document.getElementById('upload-error-m1');
       var area = document.getElementById('upload-area-m1');
@@ -3008,29 +3068,81 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         err.classList.remove('show'); area.classList.remove('error');
       }
     } else {
-      /* 樹木：3枚すべて必須 */
-      ['t1','t2','t3'].forEach(function(key) {
-        var f    = document.getElementById('file-input-' + key);
-        var err  = document.getElementById('upload-error-' + key);
-        var area = document.getElementById('upload-area-' + key);
-        if (!f || !f.files || !f.files[0]) {
-          err.classList.add('show'); area.classList.add('error');
-          if (ok) area.scrollIntoView({ behavior:'smooth', block:'center' });
-          ok = false;
-        } else {
-          err.classList.remove('show'); area.classList.remove('error');
-        }
-      });
+      /* 樹木：写真は任意なのでバリデーションなし */
     }
     if (!ok) return;
-    /* 解析中オーバーレイ → アニメーション後にStep3表示 */
+
     startAnalyzing(function() {
-      calcEstimate();
-      showStep(3);
+      var work = (document.querySelector('input[name="work"]:checked') || {}).value;
+      var isMow = (work === 'mowing' || work === 'weeding');
+      if (isMow) {
+        /* 草刈り・除草：後日送付パネル表示 */
+        document.getElementById('result-trees').style.display  = 'none';
+        document.getElementById('result-mowing').style.display = 'block';
+        document.getElementById('result-thanks').style.display = 'none';
+      } else {
+        /* 剪定・伐採・抜根：概算表示 */
+        calcEstimate();
+        document.getElementById('result-trees').style.display  = 'block';
+        document.getElementById('result-mowing').style.display = 'none';
+        document.getElementById('result-thanks').style.display = 'none';
+      }
+      showStep(4);
     });
   }
 
-  /* 写真アップロード共通ハンドラ */
+  /* CV送信（全パターン共通） */
+  function submitAndCV() {
+    var work  = (document.querySelector('input[name="work"]:checked') || {}).value;
+    var isMow = (work === 'mowing' || work === 'weeding');
+
+    var name     = document.getElementById('s1-name').value.trim();
+    var furigana = document.getElementById('s1-furigana').value.trim();
+    var postal   = document.getElementById('s1-postal').value.trim().replace(/-/g,'');
+    var pref     = document.getElementById('s1-prefecture').value;
+    var address  = document.getElementById('s1-address').value.trim();
+    var tel      = document.getElementById('s1-tel').value.trim().replace(/-/g,'');
+    var email    = document.getElementById('s1-email').value.trim();
+
+    var notes = '【作業内容】' + work
+      + ' 【高さ】' + ((document.querySelector('input[name="height"]:checked') || {}).value || '-')
+      + ' 【本数】' + (document.getElementById('tree-count') ? document.getElementById('tree-count').value || '-' : '-')
+      + ' 【概算】' + (document.getElementById('bd-total') ? document.getElementById('bd-total').textContent : '-')
+      + ' 【見積タイプ】' + (isMow ? '後日メール送付' : '即時概算');
+
+    var payload = {
+      name:            name,
+      furigana:        furigana,
+      phone:           tel,
+      email:           email,
+      zipcode:         postal,
+      prefecture_code: pref,
+      address:         address,
+      notes:           notes
+    };
+
+    /* Vercel Functions経由でリショップナビAPIにPOST */
+    fetch('/api/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+    .then(function(res) {
+      console.log('API response status:', res.status);
+    })
+    .catch(function(e) {
+      console.warn('API送信エラー:', e);
+    });
+
+    /* サンクス画面へ */
+    document.getElementById('result-trees').style.display  = 'none';
+    document.getElementById('result-mowing').style.display = 'none';
+    document.getElementById('result-thanks').style.display = 'block';
+  }
+
+  /* =============================================
+     写真アップロード
+  ============================================= */
   function handleUpload(key) {
     var f       = document.getElementById('file-input-' + key);
     var thumb   = document.getElementById('photo-thumb-' + key);
@@ -3039,72 +3151,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     var area    = document.getElementById('upload-area-' + key);
     if (f && f.files && f.files[0]) {
       var reader = new FileReader();
-      reader.onload = function(e) {
-        if (thumb) thumb.src = e.target.result;
-      };
+      reader.onload = function(e) { if (thumb) thumb.src = e.target.result; };
       reader.readAsDataURL(f.files[0]);
       if (preview) preview.classList.add('has-file');
-      if (area)    area.classList.add('has-file');    /* アイコン・テキストを隠す */
+      if (area)    area.classList.add('has-file');
       if (err)     err.classList.remove('show');
       if (area)    area.classList.remove('error');
     }
   }
 
-
-  /* AI解析中アニメーション
-     ステップを順に点灯しながら進捗バーを進め、完了後にコールバック実行 */
-  function startAnalyzing(callback) {
-    var overlay  = document.getElementById('analyzing-overlay');
-    var fill     = document.getElementById('progress-fill');
-    var label    = document.getElementById('progress-label');
-    var steps    = [1,2,3,4];
-    var progress = 0;
-    var stepIdx  = 0;
-
-    /* ステップ状態をリセット */
-    steps.forEach(function(i) {
-      var el = document.getElementById('astep-' + i);
-      el.classList.remove('done','active');
-    });
-    fill.style.width = '0%';
-    label.textContent = '0%';
-    overlay.classList.add('active');
-
-    /* 各ステップの進捗割合とディレイ（合計 約2.4秒） */
-    var schedule = [
-      { step:1, target:22,  delay:0    },
-      { step:2, target:50,  delay:520  },
-      { step:3, target:78,  delay:1100 },
-      { step:4, target:100, delay:1800 },
-    ];
-
-    schedule.forEach(function(s) {
-      setTimeout(function() {
-        /* 前のステップをdoneに */
-        if (s.step > 1) {
-          document.getElementById('astep-' + (s.step-1)).classList.remove('active');
-          document.getElementById('astep-' + (s.step-1)).classList.add('done');
-        }
-        /* 現在ステップをactiveに */
-        document.getElementById('astep-' + s.step).classList.add('active');
-        /* 進捗バーを更新 */
-        fill.style.width  = s.target + '%';
-        label.textContent = s.target + '%';
-      }, s.delay);
-    });
-
-    /* 全完了後にオーバーレイを閉じてコールバック */
-    setTimeout(function() {
-      document.getElementById('astep-4').classList.remove('active');
-      document.getElementById('astep-4').classList.add('done');
-      setTimeout(function() {
-        overlay.classList.remove('active');
-        callback();
-      }, 350);
-    }, 2400);
-  }
-
-  /* 撮り直すボタン：プレビューをリセットしてアップロードエリアを再表示 */
   function retakePhoto(key) {
     var f       = document.getElementById('file-input-' + key);
     var thumb   = document.getElementById('photo-thumb-' + key);
@@ -3116,55 +3171,82 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     if (area)    { area.classList.remove('has-file'); area.classList.remove('error'); }
   }
 
-  /* 作業種別切り替え：③写真ガイド・④剪定希望も連動して出し分け */
+  /* =============================================
+     AI解析中アニメーション
+  ============================================= */
+  function startAnalyzing(callback) {
+    var overlay = document.getElementById('analyzing-overlay');
+    var fill    = document.getElementById('progress-fill');
+    var label   = document.getElementById('progress-label');
+
+    [1,2,3,4].forEach(function(i) {
+      document.getElementById('astep-' + i).classList.remove('done','active');
+    });
+    fill.style.width = '0%';
+    label.textContent = '0%';
+    overlay.classList.add('active');
+
+    var schedule = [
+      { step:1, target:22,  delay:0    },
+      { step:2, target:50,  delay:520  },
+      { step:3, target:78,  delay:1100 },
+      { step:4, target:100, delay:1800 },
+    ];
+    schedule.forEach(function(s) {
+      setTimeout(function() {
+        if (s.step > 1) {
+          document.getElementById('astep-' + (s.step-1)).classList.remove('active');
+          document.getElementById('astep-' + (s.step-1)).classList.add('done');
+        }
+        document.getElementById('astep-' + s.step).classList.add('active');
+        fill.style.width  = s.target + '%';
+        label.textContent = s.target + '%';
+      }, s.delay);
+    });
+    setTimeout(function() {
+      document.getElementById('astep-4').classList.remove('active');
+      document.getElementById('astep-4').classList.add('done');
+      setTimeout(function() {
+        overlay.classList.remove('active');
+        callback();
+      }, 350);
+    }, 2400);
+  }
+
+  /* =============================================
+     作業種別切り替え（Step2内）
+  ============================================= */
   document.querySelectorAll('input[name="work"]').forEach(function(radio) {
     radio.addEventListener('change', function() {
       var v = this.value;
-      var isMowing  = (v === 'mowing');
+      var isMowing  = (v === 'mowing' || v === 'weeding');
       var isPruning = (v === 'pruning');
 
-      /* 既存：樹木用・草刈り用質問 */
       document.getElementById('q-trees').style.display  = !isMowing ? 'block' : 'none';
       document.getElementById('q-mowing').style.display =  isMowing ? 'block' : 'none';
 
-      /* ③ 写真アップロードセクションの出し分け */
-      var secMowing = document.getElementById('upload-section-mowing');
-      var secTrees  = document.getElementById('upload-section-trees');
-      if (secMowing) secMowing.style.display = isMowing  ? 'block' : 'none';
-      if (secTrees)  secTrees.style.display  = !isMowing ? 'block' : 'none';
-
-      /* ④ 剪定の希望内容：剪定選択時のみ表示 */
       var pruningLevel = document.getElementById('q-pruning-level');
       if (pruningLevel) pruningLevel.style.display = isPruning ? 'block' : 'none';
 
-      /* 次へボタンの有効/無効を更新 */
-      checkStep1Complete();
+      checkStep2Complete();
     });
   });
 
-  /* ── 必須項目チェック：全部揃ったら次へボタンを有効化 ──
-     必須項目：
-       - 作業内容（常時）
-       - 木の高さ（草刈り以外）
-       - 本数（草刈り以外）
-       - 草刈りエリア面積（草刈り時）
-       - ゴミの回収（常時）
-  ────────────────────────────────────────────── */
-  function checkStep1Complete() {
+  /* Step2 必須項目チェック */
+  function checkStep2Complete() {
     var work  = document.querySelector('input[name="work"]:checked');
     var trash = document.querySelector('input[name="trash"]:checked');
-    var btn   = document.getElementById('btn-next-step2');
+    var btn   = document.getElementById('btn-next-step3');
     if (!btn) return;
 
     var ok = false;
     if (work && trash) {
-      if (work.value === 'mowing') {
-        /* 草刈り：面積・地面の種類必須 */
+      var isMowing = (work.value === 'mowing' || work.value === 'weeding');
+      if (isMowing) {
         var area      = document.querySelector('input[name="area"]:checked');
         var groundType = document.querySelector('input[name="ground-type"]:checked');
         ok = !!(area && groundType);
       } else {
-        /* 樹木系：高さ＋本数必須 */
         var height = document.querySelector('input[name="height"]:checked');
         var count  = document.getElementById('tree-count');
         ok = !!(height && count && count.value && parseInt(count.value) >= 1);
@@ -3176,126 +3258,103 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     btn.style.cursor  = ok ? 'pointer' : 'not-allowed';
   }
 
-  /* 各ラジオ・入力が変化するたびにチェック */
   ['work','height','area','trash','ground-type','hand-work'].forEach(function(name) {
     document.querySelectorAll('input[name="' + name + '"]').forEach(function(el) {
-      el.addEventListener('change', checkStep1Complete);
+      el.addEventListener('change', checkStep2Complete);
     });
   });
   var treeCountEl = document.getElementById('tree-count');
-  if (treeCountEl) treeCountEl.addEventListener('input', checkStep1Complete);
-
-  /* 変更⑥: 写真プレビュー（サムネイル付き）+ エラークリア */
-  document.getElementById('file-input').addEventListener('change', function() {
-    var preview   = document.getElementById('upload-preview');
-    var nameEl    = document.getElementById('file-name');
-    var thumb     = document.getElementById('photo-thumb');
-    var errorEl   = document.getElementById('upload-error');
-    var uploadArea = document.getElementById('upload-area');
-    if (this.files && this.files[0]) {
-      var reader = new FileReader();
-      reader.onload = function(e) {
-        if (thumb) { thumb.src = e.target.result; thumb.classList.add('show'); }
-      };
-      reader.readAsDataURL(this.files[0]);
-      nameEl.textContent = this.files[0].name;
-      preview.classList.add('has-file');
-      uploadArea.classList.add('has-file');
-      errorEl.classList.remove('show');
-      uploadArea.classList.remove('error');
-    }
-  });
+  if (treeCountEl) treeCountEl.addEventListener('input', checkStep2Complete);
 
   /* =============================================
-     変更⑤: 概算計算ロジック
-     　単一金額（中央値）を算出 → 税抜小計・消費税・税込合計を内訳表示
+     概算計算ロジック
   ============================================= */
   function calcEstimate() {
     var work   = (document.querySelector('input[name="work"]:checked')   || {}).value;
     var height = (document.querySelector('input[name="height"]:checked') || {}).value;
     var area   = (document.querySelector('input[name="area"]:checked')   || {}).value;
     var count  = parseInt(document.getElementById('tree-count').value)   || 1;
-    var grassH = (document.querySelector('input[name="grass-h"]:checked')|| {}).value;
     var trash  = (document.querySelector('input[name="trash"]:checked')  || {}).value;
-
     var workBase = 0, disposalBase = 0;
 
     if (work === 'pruning') {
       var mid = height === 'high' ? 15000 : height === 'mid' ? 9000 : 5500;
-      workBase     = mid * count;
+      workBase = mid * count;
       disposalBase = Math.ceil(count * 0.8) * 6000;
     } else if (work === 'cutting') {
       var mid = height === 'high' ? 32000 : 15000;
-      workBase     = mid * count;
+      workBase = mid * count;
       disposalBase = Math.ceil(count * 1.5) * 6500;
     } else if (work === 'roots') {
       var mid = height === 'high' ? 36000 : 19000;
-      workBase     = mid * count;
+      workBase = mid * count;
       disposalBase = Math.ceil(count * 0.8) * 6500;
-    } else if (work === 'mowing') {
-      /* 面積区分（費用表準拠）
-         xs: 〜100㎡ → 基本料金18,000円
-         s : 100〜300㎡ → 基本+300円/㎡（中央200㎡想定）
-         m : 300〜500㎡ → 基本+220円/㎡（中央400㎡想定）
-         l : 500㎡以上 → 基本+140円/㎡（中央700㎡想定）
-      */
-      var areaBase = area === 'l' ? 18000 + 140 * 700
-                   : area === 'm' ? 18000 + 220 * 400
-                   : area === 's' ? 18000 + 300 * 200
-                   : 18000; /* xs or unknown */
-
-      /* 草の高さ係数 */
-      var heightMult = (grassH === 'high') ? 1.3 : (grassH === 'mid') ? 1.0 : 0.9;
-
-      /* 地面の種類係数 */
-      var groundType = (document.querySelector('input[name="ground-type"]:checked') || {}).value;
-      var groundMult = (groundType === 'gravel') ? 1.3
-                     : (groundType === 'mixed')  ? 1.15
-                     : 1.0; /* soil / unknown */
-
-      /* 手作業（草むしり）加算 */
-      var handWork = (document.querySelector('input[name="hand-work"]:checked') || {}).value;
-      var handAdd  = (handWork === 'full')    ? areaBase * 0.5
-                   : (handWork === 'partial') ? areaBase * 0.2
-                   : 0;
-
-      workBase     = Math.round(areaBase * heightMult * groundMult / 1000) * 1000 + Math.round(handAdd / 1000) * 1000;
-      disposalBase = 9000;
     }
 
     if (trash === 'no')      disposalBase = 0;
     if (trash === 'unknown') disposalBase = Math.round(disposalBase * 0.6);
 
-    /* 変更⑤: 税抜小計→消費税→税込合計 */
     var subtotal = round5k(workBase + disposalBase);
     var tax      = Math.round(subtotal * 0.1 / 1000) * 1000;
     var total    = subtotal + tax;
 
-    /* 変更⑤: 単一金額を result-price に表示 */
-    document.getElementById('result-price').textContent   = total.toLocaleString() + '円';
-    document.getElementById('bd-work').textContent        = workBase.toLocaleString() + '円';
-    document.getElementById('bd-disposal').textContent    =
-      disposalBase > 0 ? disposalBase.toLocaleString() + '円' : '不要または未選択';
-    document.getElementById('bd-subtotal').textContent    = subtotal.toLocaleString() + '円';
-    document.getElementById('bd-tax').textContent         = tax.toLocaleString() + '円';
-    document.getElementById('bd-total').textContent       = total.toLocaleString() + '円';
+    document.getElementById('result-price').textContent  = total.toLocaleString() + '円';
+    document.getElementById('bd-work').textContent       = workBase.toLocaleString() + '円';
+    document.getElementById('bd-disposal').textContent   = disposalBase > 0 ? disposalBase.toLocaleString() + '円' : '不要または未選択';
+    document.getElementById('bd-subtotal').textContent   = subtotal.toLocaleString() + '円';
+    document.getElementById('bd-tax').textContent        = tax.toLocaleString() + '円';
+    document.getElementById('bd-total').textContent      = total.toLocaleString() + '円';
   }
-
   function round5k(n) { return Math.round(n / 5000) * 5000 || 5000; }
+
+  /* =============================================
+     写真なし導線
+  ============================================= */
+  function openNoPhotoModal() { window.location.href = NO_PHOTO_URL; }
+  function goNoPhotoUrl(btn) {
+    var panel = document.getElementById('no-photo-panel');
+    if (panel) {
+      panel.querySelectorAll('.no-photo-inner-btn').forEach(function(b) {
+        b.style.background = '#fff'; b.style.color = 'var(--green-dark)';
+        b.style.borderColor = 'var(--border)'; b.style.fontWeight = '600';
+      });
+      if (btn) {
+        btn.style.background = '#22ba4f'; btn.style.color = '#ffffff';
+        btn.style.borderColor = '#22ba4f'; btn.style.fontWeight = '700';
+      }
+    }
+    var cta = document.getElementById('no-photo-cta');
+    if (cta) cta.style.display = 'block';
+  }
+  function toggleNoPhotoPanel() {
+    var p = document.getElementById('no-photo-panel');
+    if (!p) return;
+    p.style.display = p.style.display === 'none' ? 'block' : 'none';
+    if (p.style.display === 'block') {
+      var cta = document.getElementById('no-photo-cta');
+      if (cta) cta.style.display = 'none';
+      p.querySelectorAll('.no-photo-inner-btn').forEach(function(b) {
+        b.style.background = '#fff'; b.style.color = 'var(--green-dark)';
+        b.style.borderColor = 'var(--border)'; b.style.fontWeight = '600';
+      });
+    }
+  }
 
   /* =============================================
      FAQ アコーディオン
   ============================================= */
-  function toggleFaq(el) {
-    el.closest('.faq-item').classList.toggle('open');
-  }
+  function toggleFaq(el) { el.closest('.faq-item').classList.toggle('open'); }
 
   /* =============================================
-     固定フッターCTA: 常時表示
+     固定フッターCTA
   ============================================= */
   var stickyCta = document.getElementById('sticky-cta');
-  if (stickyCta) {
-    stickyCta.style.display = 'block';
+  if (stickyCta) stickyCta.style.display = 'block';
+
+  /* file-input（後方互換） */
+  var legacyInput = document.getElementById('file-input');
+  if (legacyInput) {
+    legacyInput.addEventListener('change', function() {});
   }
 
   /* =============================================
@@ -3327,26 +3386,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         tabBtn.style.fontWeight = (t === tab) ? '700' : '600';
       }
     });
-    /* タブ切り替え時にスクロールをトップに戻す */
     var modal = document.getElementById('terms-modal');
     if (modal) modal.scrollTop = 0;
   }
 
+  /* 写真なしボタンスタイル */
   document.querySelectorAll('.no-photo-inner-btn').forEach(function(btn) {
     btn.style.cssText = [
       'display:block','width:100%','padding:13px 16px',
       'background:var(--white)','border:1.5px solid var(--border)',
-      'border-radius:8px','font-family:var(--font-sans)','font-size:14px',
-      'font-weight:600','color:var(--green-dark)','text-align:left',
-      'cursor:pointer'
+      'border-radius:8px','font-family:Arial,sans-serif','font-size:14px',
+      'font-weight:600','color:var(--green-dark)','text-align:left','cursor:pointer'
     ].join(';');
     btn.addEventListener('mouseover', function() {
-      this.style.background = 'var(--green-mist)';
-      this.style.borderColor = 'var(--green-mid)';
+      this.style.background = 'var(--green-mist)'; this.style.borderColor = 'var(--green-mid)';
     });
     btn.addEventListener('mouseout', function() {
-      this.style.background = 'var(--white)';
-      this.style.borderColor = 'var(--border)';
+      this.style.background = 'var(--white)'; this.style.borderColor = 'var(--border)';
     });
   });
 </script>
