@@ -2376,9 +2376,10 @@
             <input type="text" class="number-input" id="s1-postal" placeholder="例：1500001" maxlength="7" inputmode="numeric" oninput="this.value=this.value.replace(/[^0-9]/g,'');fetchAddress()">
             <p style="font-size:11px;color:var(--text-soft);margin-top:4px;">ハイフンなし7桁で入力してください</p>
             <p class="upload-error" id="s1-postal-error" style="margin-top:4px;">郵便番号を入力してください</p>
+            <p id="s1-postal-invalid" style="display:none;color:#e53e3e;font-size:13px;font-weight:600;margin-top:6px;">正しい郵便番号を入力してください</p>
             <!-- 自動取得した住所表示 -->
             <div id="s1-address-display" style="display:none;margin-top:8px;padding:10px 12px;background:var(--green-mist);border:1px solid var(--border);border-radius:var(--radius-sm);font-size:13px;color:var(--green-dark);">
-              <span style="font-size:11px;color:var(--text-soft);display:block;margin-bottom:2px;">自動取得した住所</span>
+              <span style="font-size:11px;color:var(--text-soft);display:block;margin-bottom:2px;">✅ 住所が確認できました</span>
               <span id="s1-address-text"></span>
             </div>
           </div>
@@ -2861,12 +2862,17 @@
   ============================================= */
   function fetchAddress() {
     var postal = document.getElementById('s1-postal').value.replace(/[^0-9]/g,'');
+    var invalidEl = document.getElementById('s1-postal-invalid');
+    var displayEl = document.getElementById('s1-address-display');
+
     if (postal.length !== 7) {
-      document.getElementById('s1-address-display').style.display = 'none';
+      if (displayEl) displayEl.style.display = 'none';
+      if (invalidEl) invalidEl.style.display = 'none';
       autoAddress  = '';
       autoPrefCode = '';
       return;
     }
+
     fetch('https://zipcloud.ibsnet.co.jp/api/search?zipcode=' + postal)
       .then(function(r) { return r.json(); })
       .then(function(data) {
@@ -2875,7 +2881,10 @@
           autoAddress  = r.address1 + r.address2 + r.address3;
           autoPrefCode = r.prefcode;
           document.getElementById('s1-address-text').textContent = autoAddress;
-          document.getElementById('s1-address-display').style.display = 'block';
+          if (displayEl) displayEl.style.display = 'block';
+          if (invalidEl) invalidEl.style.display = 'none';
+          /* 郵便番号エラーも消す */
+          document.getElementById('s1-postal-error').style.display = 'none';
           /* 草刈りの住所表示にも反映 */
           var mowingAuto = document.getElementById('mowing-address-auto-text');
           if (mowingAuto) {
@@ -2883,14 +2892,17 @@
             document.getElementById('mowing-address-auto').style.display = 'block';
           }
         } else {
+          /* 郵便番号が存在しない */
           autoAddress  = '';
           autoPrefCode = '';
-          document.getElementById('s1-address-display').style.display = 'none';
+          if (displayEl) displayEl.style.display = 'none';
+          if (invalidEl) invalidEl.style.display = 'block';
         }
       })
       .catch(function() {
         autoAddress  = '';
         autoPrefCode = '';
+        if (displayEl) displayEl.style.display = 'none';
       });
   }
 
@@ -2911,8 +2923,15 @@
     if (!furigana) { document.getElementById('s1-furigana-error').style.display='block'; ok=false; }
     else             { document.getElementById('s1-furigana-error').style.display='none'; }
 
-    if (postal.length !== 7) { document.getElementById('s1-postal-error').style.display='block'; ok=false; }
-    else                       { document.getElementById('s1-postal-error').style.display='none'; }
+    if (postal.length !== 7 || !autoPrefCode) {
+      document.getElementById('s1-postal-error').style.display = 'none';
+      document.getElementById('s1-postal-invalid').style.display = 'block';
+      document.getElementById('s1-postal').focus();
+      ok = false;
+    } else {
+      document.getElementById('s1-postal-invalid').style.display = 'none';
+      document.getElementById('s1-postal-error').style.display = 'none';
+    }
 
     if (!tel)      { document.getElementById('s1-tel-error').style.display='block'; ok=false; }
     else             { document.getElementById('s1-tel-error').style.display='none'; }
