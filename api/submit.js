@@ -69,10 +69,29 @@ export default async function handler(req, res) {
       }
     }
 
+    /* 郵便番号から都道府県コード・住所を補完（フロントで取得できなかった場合） */
+    let finalPrefCode = prefecture_code;
+    let finalAddress  = address;
+    if (!finalPrefCode && zipcode) {
+      try {
+        const zipRes  = await fetch(`https://zipcloud.ibsnet.co.jp/api/search?zipcode=${zipcode}`);
+        const zipData = await zipRes.json();
+        if (zipData.results && zipData.results[0]) {
+          const r = zipData.results[0];
+          finalPrefCode = r.prefcode;
+          if (!finalAddress) {
+            finalAddress = r.address1 + r.address2 + r.address3;
+          }
+        }
+      } catch(e) {
+        console.warn('郵便番号API エラー:', e);
+      }
+    }
+
     /* ② リショップナビAPIにPOST */
     const payload = {
       name, furigana, phone, email,
-      zipcode, prefecture_code, address, notes,
+      zipcode, prefecture_code: finalPrefCode, address: finalAddress, notes,
       media_name, media_key
     };
 
