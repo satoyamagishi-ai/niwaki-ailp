@@ -2364,12 +2364,12 @@
           <div class="form-group">
             <label class="form-label">お名前 <span class="required">必須</span></label>
             <input type="text" class="number-input" id="s1-name" placeholder="例：山田 太郎" autocomplete="name">
-            <p class="upload-error" id="s1-name-error" style="margin-top:4px;">お名前を入力してください</p>
+            <p class="upload-error" id="s1-name-error" style="margin-top:4px;">お名前を入力してください（10文字以内）</p>
           </div>
           <div class="form-group">
             <label class="form-label">ふりがな <span class="required">必須</span></label>
             <input type="text" class="number-input" id="s1-furigana" placeholder="例：やまだ たろう">
-            <p class="upload-error" id="s1-furigana-error" style="margin-top:4px;">ふりがなを入力してください</p>
+            <p class="upload-error" id="s1-furigana-error" style="margin-top:4px;">ひらがなで入力してください（20文字以内）</p>
           </div>
           <div class="form-group">
             <label class="form-label">郵便番号 <span class="required">必須</span></label>
@@ -2386,7 +2386,7 @@
           <div class="form-group">
             <label class="form-label">電話番号 <span class="required">必須</span></label>
             <input type="tel" class="number-input" id="s1-tel" placeholder="例：09000000000" inputmode="tel" autocomplete="tel">
-            <p class="upload-error" id="s1-tel-error" style="margin-top:4px;">電話番号を入力してください</p>
+            <p class="upload-error" id="s1-tel-error" style="margin-top:4px;">電話番号を正しく入力してください（数字のみ・5〜13桁）</p>
           </div>
           <div class="form-group">
             <label class="form-label">メールアドレス <span class="required">必須</span></label>
@@ -2917,11 +2917,15 @@
     var email    = document.getElementById('s1-email').value.trim();
     var ok = true;
 
-    if (!name)     { document.getElementById('s1-name-error').style.display='block'; ok=false; }
-    else             { document.getElementById('s1-name-error').style.display='none'; }
+    /* お名前：空・10文字以下 */
+    if (!name || name.length > 10) {
+      document.getElementById('s1-name-error').style.display='block'; ok=false;
+    } else { document.getElementById('s1-name-error').style.display='none'; }
 
-    if (!furigana) { document.getElementById('s1-furigana-error').style.display='block'; ok=false; }
-    else             { document.getElementById('s1-furigana-error').style.display='none'; }
+    /* ふりがな：空・全角ひらがな・20文字以下 */
+    if (!furigana || furigana.length > 20 || !/^[ぁ-ん　 ー]+$/.test(furigana)) {
+      document.getElementById('s1-furigana-error').style.display='block'; ok=false;
+    } else { document.getElementById('s1-furigana-error').style.display='none'; }
 
     if (postal.length !== 7 || !autoPrefCode) {
       document.getElementById('s1-postal-error').style.display = 'none';
@@ -2933,8 +2937,11 @@
       document.getElementById('s1-postal-error').style.display = 'none';
     }
 
-    if (!tel)      { document.getElementById('s1-tel-error').style.display='block'; ok=false; }
-    else             { document.getElementById('s1-tel-error').style.display='none'; }
+    /* 電話番号：5〜13桁の数字のみ */
+    var telNorm = tel.replace(/-/g, '');
+    if (!tel || !/^[0-9]{5,13}$/.test(telNorm)) {
+      document.getElementById('s1-tel-error').style.display='block'; ok=false;
+    } else { document.getElementById('s1-tel-error').style.display='none'; }
 
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       document.getElementById('s1-email-error').style.display='block'; ok=false;
