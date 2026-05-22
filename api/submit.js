@@ -115,7 +115,7 @@ export default async function handler(req, res) {
 
       /* テキスト部分 */
       const slackText = [
-        '<@yamagishi-sato-z>',
+        '<@U051ELU7ETV>',
         '【庭木】問い合わせがありました。',
         `氏名：${name}（${furigana}）`,
         `作業内容：${workLine}`,
