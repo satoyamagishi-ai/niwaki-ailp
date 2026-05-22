@@ -72,10 +72,12 @@ export default async function handler(req, res) {
     /* 郵便番号から都道府県コード・住所を補完（フロントで取得できなかった場合） */
     let finalPrefCode = prefecture_code;
     let finalAddress  = address;
+    console.log('受信データ - zipcode:', zipcode, 'prefecture_code:', prefecture_code, 'address:', address);
     if (!finalPrefCode && zipcode) {
       try {
         const zipRes  = await fetch(`https://zipcloud.ibsnet.co.jp/api/search?zipcode=${zipcode}`);
         const zipData = await zipRes.json();
+        console.log('zipcloudレスポンス:', JSON.stringify(zipData));
         if (zipData.results && zipData.results[0]) {
           const r = zipData.results[0];
           finalPrefCode = r.prefcode;
@@ -87,6 +89,7 @@ export default async function handler(req, res) {
         console.warn('郵便番号API エラー:', e);
       }
     }
+    console.log('最終データ - prefecture_code:', finalPrefCode, 'address:', finalAddress);
 
     /* ② リショップナビAPIにPOST */
     const payload = {
