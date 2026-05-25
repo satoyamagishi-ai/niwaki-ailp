@@ -146,15 +146,17 @@ export default async function handler(req, res) {
       }).catch(function(e) { console.warn('スプレッドシート記録エラー:', e); });
     }
 
-    const response = await fetch('https://rehome-navi.com/api/package_estimates', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
-    });
-
-    const data = await response.json().catch(() => ({}));
-    console.log('APIステータス:', response.status);
-    console.log('APIレスポンス:', JSON.stringify(data));
+    /* ② リショップナビAPIにPOST（一時停止中） */
+    // const response = await fetch('https://rehome-navi.com/api/package_estimates', {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify(payload),
+    // });
+    // const data = await response.json().catch(() => ({}));
+    // console.log('APIステータス:', response.status);
+    // console.log('APIレスポンス:', JSON.stringify(data));
+    const response = { ok: true, status: 200 };
+    const data = { estimates_id: 'test' };
 
     if (!response.ok) {
       return res.status(response.status).json({
