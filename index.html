@@ -3147,6 +3147,43 @@
   }
 
   /* 写真選択ハンドラ */
+  /* 画像圧縮関数（最大幅1200px・JPEG品質0.7） */
+  function compressImage(file, callback) {
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      var img = new Image();
+      img.onload = function() {
+        var canvas = document.createElement('canvas');
+        var maxWidth  = 1200;
+        var maxHeight = 1200;
+        var width  = img.width;
+        var height = img.height;
+
+        /* リサイズ計算 */
+        if (width > maxWidth || height > maxHeight) {
+          if (width / height > maxWidth / maxHeight) {
+            height = Math.round(height * maxWidth / width);
+            width  = maxWidth;
+          } else {
+            width  = Math.round(width * maxHeight / height);
+            height = maxHeight;
+          }
+        }
+
+        canvas.width  = width;
+        canvas.height = height;
+        var ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, width, height);
+
+        /* JPEG品質0.7で圧縮 */
+        var compressed = canvas.toDataURL('image/jpeg', 0.7);
+        callback(compressed);
+      };
+      img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  }
+
   function handleSlotUpload(id) {
     var input   = document.getElementById('input-' + id);
     var thumb   = document.getElementById('thumb-' + id);
@@ -3154,14 +3191,12 @@
     var area    = document.getElementById('area-' + id);
 
     if (input && input.files && input.files[0]) {
-      var reader = new FileReader();
-      reader.onload = function(e) {
-        if (thumb) thumb.src = e.target.result;
-        /* photoSlotsのbase64を更新 */
+      /* 圧縮してからbase64保存 */
+      compressImage(input.files[0], function(compressed) {
+        if (thumb) thumb.src = compressed;
         var slot = photoSlots.find(function(s) { return s.id === id; });
-        if (slot) slot.base64 = e.target.result;
-      };
-      reader.readAsDataURL(input.files[0]);
+        if (slot) slot.base64 = compressed;
+      });
       if (preview) preview.classList.add('has-file');
       if (area)    area.classList.add('has-file');
       area.classList.remove('error');
