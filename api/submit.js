@@ -130,7 +130,7 @@ export default async function handler(req, res) {
         title: `写真 ${i + 1}`,
       }));
 
-      await fetch(slack_webhook, {
+      const slackRes = await fetch(slack_webhook, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -138,6 +138,9 @@ export default async function handler(req, res) {
           attachments: attachments.length > 0 ? attachments : undefined,
         }),
       }).catch(function(e) { console.warn('Slack通知エラー:', e); });
+      console.log('Slackステータス:', slackRes ? slackRes.status : 'error');
+      const slackBody = slackRes ? await slackRes.text() : '';
+      console.log('Slackレスポンス:', slackBody);
     }
 
     /* ④ スプレッドシートに記録 */
