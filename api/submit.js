@@ -15,7 +15,7 @@ export default async function handler(req, res) {
 
     const media_name    = process.env.MEDIA_NAME;
     const media_key     = process.env.MEDIA_KEY;
-    const slack_webhook   = 'https://hooks.slack.com/services/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';
+    const slack_webhook   = process.env.slack_webhook_url;
     const spreadsheet_url = process.env.spreadsheet_url;
 
     /* Cloudinary設定 */
