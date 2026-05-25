@@ -98,22 +98,11 @@ export default async function handler(req, res) {
       media_name, media_key
     };
 
-    const response = await fetch('https://rehome-navi.com/api/package_estimates', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
-    });
-
-    const data = await response.json().catch(() => ({}));
-    console.log('APIステータス:', response.status);
-    console.log('APIレスポンス:', JSON.stringify(data));
-
-    /* ③ Slack通知 */
+    /* ③ Slack通知（リショップナビAPIの結果に関係なく送信） */
     if (needs_slack === 'true' && slack_webhook) {
       const workLine  = notes.split('\n')[0].replace('作業内容：', '');
       const taiouLine = notes.split('\n').find(function(l) { return l.startsWith('対応希望：'); }) || '';
 
-      /* テキスト部分 */
       const slackText = [
         '<@U051ELU7ETV>',
         '【庭木】問い合わせがありました。',
@@ -123,7 +112,6 @@ export default async function handler(req, res) {
         uploadedUrls.length > 0 ? `ファイル数：${uploadedUrls.length}枚` : '',
       ].filter(Boolean).join('\n');
 
-      /* 画像をattachmentsとして添付（Slack上でインライン表示） */
       const attachments = uploadedUrls.map((url, i) => ({
         fallback: `写真${i + 1}`,
         image_url: url,
@@ -143,23 +131,28 @@ export default async function handler(req, res) {
       console.log('Slackレスポンス:', slackBody);
     }
 
-    /* ④ スプレッドシートに記録 */
+    /* ④ スプレッドシートに記録（リショップナビAPIの結果に関係なく送信） */
     if (spreadsheet_url) {
       await fetch(spreadsheet_url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          name,
-          furigana,
-          phone,
-          email,
-          zipcode,
-          address,
-          notes,
+          name, furigana, phone, email,
+          zipcode, address, notes,
           photo_urls: uploadedUrls,
         }),
       }).catch(function(e) { console.warn('スプレッドシート記録エラー:', e); });
     }
+
+    const response = await fetch('https://rehome-navi.com/api/package_estimates', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+
+    const data = await response.json().catch(() => ({}));
+    console.log('APIステータス:', response.status);
+    console.log('APIレスポンス:', JSON.stringify(data));
 
     if (!response.ok) {
       return res.status(response.status).json({
