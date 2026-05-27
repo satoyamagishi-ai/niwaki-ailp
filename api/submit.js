@@ -21,9 +21,9 @@ export default async function handler(req, res) {
     const spreadsheet_url = process.env.spreadsheet_url;
 
     /* Cloudinary設定 */
-    const CLOUD_NAME = 'dekvyywbw';
-    const API_KEY    = '888714669159847';
-    const API_SECRET = 'WrtRES7hssIUUfbedNgWnx3-xF8';
+    const CLOUD_NAME = process.env.cloudinary_cloud_name;
+    const API_KEY    = process.env.cloudinary_api_key;
+    const API_SECRET = process.env.cloudinary_api_secret;
 
     if (!media_name || !media_key) {
       return res.status(500).json({ error: '環境変数が設定されていません' });
@@ -146,17 +146,15 @@ export default async function handler(req, res) {
       }).catch(function(e) { console.warn('スプレッドシート記録エラー:', e); });
     }
 
-    /* ② リショップナビAPIにPOST（一時停止中） */
-    // const response = await fetch('https://rehome-navi.com/api/package_estimates', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify(payload),
-    // });
-    // const data = await response.json().catch(() => ({}));
-    // console.log('APIステータス:', response.status);
-    // console.log('APIレスポンス:', JSON.stringify(data));
-    const response = { ok: true, status: 200 };
-    const data = { estimates_id: 'test' };
+    /* ② リショップナビAPIにPOST */
+    const response = await fetch('https://rehome-navi.com/api/package_estimates', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    const data = await response.json().catch(() => ({}));
+    console.log('APIステータス:', response.status);
+    console.log('APIレスポンス:', JSON.stringify(data));
 
     if (!response.ok) {
       return res.status(response.status).json({
