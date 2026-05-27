@@ -16,9 +16,6 @@ export default async function handler(req, res) {
     const media_name    = process.env.MEDIA_NAME;
     const media_key     = process.env.MEDIA_KEY;
     const slack_webhook   = process.env.slack_webhook_url;
-    console.log('slack_webhook_url exists:', !!slack_webhook);
-    console.log('slack_webhook_url starts:', slack_webhook ? slack_webhook.substring(0, 40) : 'undefined');
-    const spreadsheet_url = process.env.spreadsheet_url;
 
     /* Cloudinary設定 */
     const CLOUD_NAME = process.env.cloudinary_cloud_name;
@@ -74,12 +71,10 @@ export default async function handler(req, res) {
     /* 郵便番号から都道府県コード・住所を補完（フロントで取得できなかった場合） */
     let finalPrefCode = prefecture_code;
     let finalAddress  = address;
-    console.log('受信データ - zipcode:', zipcode, 'prefecture_code:', prefecture_code, 'address:', address);
     if (!finalPrefCode && zipcode) {
       try {
         const zipRes  = await fetch(`https://zipcloud.ibsnet.co.jp/api/search?zipcode=${zipcode}`);
         const zipData = await zipRes.json();
-        console.log('zipcloudレスポンス:', JSON.stringify(zipData));
         if (zipData.results && zipData.results[0]) {
           const r = zipData.results[0];
           finalPrefCode = r.prefcode;
@@ -91,7 +86,6 @@ export default async function handler(req, res) {
         console.warn('郵便番号API エラー:', e);
       }
     }
-    console.log('最終データ - prefecture_code:', finalPrefCode, 'address:', finalAddress);
 
     /* ② リショップナビAPIにPOST */
     const payload = {
@@ -128,22 +122,7 @@ export default async function handler(req, res) {
           attachments: attachments.length > 0 ? attachments : undefined,
         }),
       }).catch(function(e) { console.warn('Slack通知エラー:', e); });
-      console.log('Slackステータス:', slackRes ? slackRes.status : 'error');
       const slackBody = slackRes ? await slackRes.text() : '';
-      console.log('Slackレスポンス:', slackBody);
-    }
-
-    /* ④ スプレッドシートに記録（リショップナビAPIの結果に関係なく送信） */
-    if (spreadsheet_url) {
-      await fetch(spreadsheet_url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name, furigana, phone, email,
-          zipcode, address, notes,
-          photo_urls: uploadedUrls,
-        }),
-      }).catch(function(e) { console.warn('スプレッドシート記録エラー:', e); });
     }
 
     /* ② リショップナビAPIにPOST */
@@ -153,8 +132,6 @@ export default async function handler(req, res) {
       body: JSON.stringify(payload),
     });
     const data = await response.json().catch(() => ({}));
-    console.log('APIステータス:', response.status);
-    console.log('APIレスポンス:', JSON.stringify(data));
 
     if (!response.ok) {
       return res.status(response.status).json({
