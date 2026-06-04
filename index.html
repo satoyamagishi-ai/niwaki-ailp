@@ -2403,7 +2403,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <input type="text" class="number-input" id="s1-email" placeholder="例：sample@example.com" inputmode="email" autocomplete="email">
             <p class="upload-error" id="s1-email-error" style="margin-top:4px;">正しいメールアドレスを入力してください</p>
           </div>
-          <button class="btn-primary" onclick="goStep2()">次へ →</button>
+          <button class="btn-primary" data-gtm="step1_next" onclick="goStep2()">次へ →</button>
         </div>
 
         <!-- Step 2: 作業内容ヒアリング -->
@@ -2556,7 +2556,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
           <div style="display:flex;gap:10px;margin-top:4px;">
             <button class="btn-secondary" onclick="goStep1()" style="flex:1;">← 戻る</button>
-            <button class="btn-primary" id="btn-next-step3" onclick="goStep3()" disabled style="opacity:0.4;cursor:not-allowed;flex:2;">次へ →</button>
+            <button class="btn-primary" data-gtm="step2_next" id="btn-next-step3" onclick="goStep3()" disabled style="opacity:0.4;cursor:not-allowed;flex:2;">次へ →</button>
           </div>
         </div>
 
@@ -2585,7 +2585,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
           <div style="display:flex;gap:10px;">
             <button class="btn-secondary" onclick="goStep2()" style="flex:1;">← 戻る</button>
-            <button class="btn-primary" id="btn-next-from-trees" onclick="goFromTreesChoice()" style="flex:2;">次へ →</button>
+            <button class="btn-primary" data-gtm="step3_next" id="btn-next-from-trees" onclick="goFromTreesChoice()" style="flex:2;">次へ →</button>
           </div>
         </div>
 
@@ -2608,7 +2608,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
           <div style="display:flex;gap:10px;">
             <button class="btn-secondary" onclick="goStep2()" style="flex:1;">← 戻る</button>
-            <button class="btn-primary" onclick="goMowingPhoto()" style="flex:2;">次へ →</button>
+            <button class="btn-primary" data-gtm="step3_mowing_next" onclick="goMowingPhoto()" style="flex:2;">次へ →</button>
           </div>
         </div>
 
@@ -2639,7 +2639,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </p>
           <div style="display:flex;gap:10px;margin-top:4px;">
             <button class="btn-secondary" onclick="goBackFromPhoto()" style="flex:1;">← 戻る</button>
-            <button class="btn-primary" onclick="doSubmitAndCV()" style="flex:2;">依頼する</button>
+            <button class="btn-primary" data-gtm="step4_submit" onclick="doSubmitAndCV()" style="flex:2;">依頼する</button>
+        
           </div>
         </div>
 
