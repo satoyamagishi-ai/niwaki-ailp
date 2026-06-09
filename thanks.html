@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ご依頼ありがとうございます | リショップナビ 庭木</title>
+  <meta name="robots" content="noindex, nofollow">
+  <style>
+    :root {
+      --green-dark:  #1a6b2e;
+      --green-mid:   #22ba4f;
+      --green-pale:  #d4f5de;
+      --green-mist:  #f0fbf4;
+      --orange:      #e07b20;
+      --text-primary:#1c2621;
+      --text-mid:    #3d4d45;
+      --text-soft:   #667d72;
+      --bg:          #f8fdf9;
+      --white:       #ffffff;
+      --border:      #cce8d4;
+      --radius:      14px;
+      --radius-sm:   8px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.8;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ヘッダー */
+    header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .header-logo img {
+      height: 36px;
+      width: auto;
+      display: block;
+    }
+
+    /* メインコンテンツ */
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .thanks-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: 0 6px 24px rgba(34,186,79,0.15);
+      padding: 48px 32px;
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+    }
+
+    /* チェックアイコン */
+    .thanks-icon-wrap {
+      width: 72px;
+      height: 72px;
+      background: var(--green-pale);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+    }
+
+    .thanks-icon-wrap svg {
+      width: 36px;
+      height: 36px;
+      stroke: var(--green-dark);
+      stroke-width: 2.5;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .thanks-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--green-dark);
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    .thanks-desc {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.9;
+      margin-bottom: 32px;
+    }
+
+    /* 次のステップ */
+    .next-steps {
+      background: var(--green-mist);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 20px;
+      text-align: left;
+      margin-bottom: 32px;
+    }
+
+    .next-steps-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--green-dark);
+      margin-bottom: 12px;
+    }
+
+    .next-step-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--text-mid);
+      margin-bottom: 8px;
+    }
+
+    .next-step-item:last-child { margin-bottom: 0; }
+
+    .step-num {
+      background: var(--green-mid);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 700;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* 電話番号 */
+    .tel-wrap {
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+    }
+
+    .tel-label {
+      font-size: 12px;
+      color: var(--text-soft);
+      margin-bottom: 6px;
+    }
+
+    .tel-number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--green-dark);
+      text-decoration: none;
+    }
+
+    .tel-number svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--green-dark);
+      fill: none;
+      stroke-width: 2;
+    }
+
+    .tel-hours {
+      font-size: 11px;
+      color: var(--text-soft);
+      margin-top: 4px;
+    }
+
+    /* フッター */
+    footer {
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      padding: 16px 20px;
+      text-align: center;
+      font-size: 11px;
+      color: var(--text-soft);
+    }
+
+    footer a {
+      color: var(--green-dark);
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header>
+    <div class="header-logo">
+      <!-- ============================================================
+           【画像①】リショップナビ ロゴ画像
+
+           ▼▼▼ 以下の src="" の "" の中にロゴ画像のURLを入力してください ▼▼▼
+           入力例）src="https://example.com/logo.png"
+
+           変更前：<img src="" alt="リショップナビ">
+           変更後：<img src="https://example.com/logo.png" alt="リショップナビ">
+           ============================================================ -->
+      <img src="" alt="リショップナビ">
+    </div>
+  </header>
+
+  <!-- メイン -->
+  <main>
+    <div class="thanks-card">
+
+      <!-- チェックアイコン -->
+      <div class="thanks-icon-wrap">
+        <svg viewBox="0 0 24 24">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+      </div>
+
+      <h1 class="thanks-title">ご利用いただきありがとうございます！</h1>
+
+      <p class="thanks-desc">
+        現地調査ご依頼を承りました。<br>
+        庭木担当者より3日以内にご連絡いたします。<br><br>
+        しつこい営業はいたしませんので、<br>
+        安心してお待ちください。
+      </p>
+
+      <!-- 次のステップ -->
+      <div class="next-steps">
+        <p class="next-steps-title">📋 今後の流れ</p>
+        <div class="next-step-item">
+          <span class="step-num">1</span>
+          <span>担当者より3日以内にお電話またはメールでご連絡します</span>
+        </div>
+        <div class="next-step-item">
+          <span class="step-num">2</span>
+          <span>ご希望の日程で現地調査または概算をご提示します</span>
+        </div>
+        <div class="next-step-item">
+          <span class="step-num">3</span>
+          <span>ご納得いただけた場合のみ正式なご依頼をお願いします</span>
+        </div>
+      </div>
+
+      <!-- 電話番号 -->
+      <div class="tel-wrap">
+        <p class="tel-label">お急ぎの方はお電話ください</p>
+        <a href="tel:0120447604" class="tel-number">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.28h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6.06 6.06l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          0120-447-604
+        </a>
+        <p class="tel-hours">受付時間：9:00〜18:00（年中無休）</p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- フッター -->
+  <footer>
+    <p>© リショップナビ　<a href="https://rehome-navi.com/informations/terms" target="_blank">利用規約・プライバシーポリシー</a></p>
+  </footer>
+
+</body>
+</html>
